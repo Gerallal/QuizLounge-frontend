@@ -2,18 +2,18 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  background-color: #1a1a1a;
+  background-color: #ffffff;
   display: flex;
   font-family: 'Arial', sans-serif;
 }
 
 ul li a {
   display: block;
-  color: #9f07ef;
+  color: #2f2f2f;
   padding: 14px 16px;
   text-decoration: none;
 }
 
 ul li a:hover {
-  background-color: #111111;
+  background-color: #b791df;
 }
