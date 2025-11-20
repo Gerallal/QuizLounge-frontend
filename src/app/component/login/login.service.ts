@@ -16,11 +16,11 @@ export class LoginService {
 
   }
 
-  login(params:any):Observable<any> {
+  /**login(params:any):Observable<any> {
     return this.httpClient.post<any>(this._url, params);
-  }
+  }**/
 
-  newLogin(username: string, password: string):Observable<any> {
+  login(username: string, password: string):Observable<any> {
     return this.httpClient.post(this._url, { username, password }, {
       withCredentials: true
     });

@@ -27,7 +27,7 @@ export class Login{
     };
 
 
-    this._loginService.newLogin(this.formData.username, this.formData.password)
+    this._loginService.login(this.formData.username, this.formData.password)
       .subscribe({next: data => {this.user = data;
       }})
 
