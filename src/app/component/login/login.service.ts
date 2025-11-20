@@ -10,6 +10,8 @@ export class LoginService {
 
   private _url:string = "http://localhost:8080/quizlounge/api/login";
 
+  private _testUrl:string = "http://localhost:8080/quizlounge/api/current-user";
+
   constructor(private httpClient:HttpClient) {
 
   }
@@ -17,5 +19,17 @@ export class LoginService {
   login(params:any):Observable<any> {
     return this.httpClient.post<any>(this._url, params);
   }
-  
+
+  newLogin(username: string, password: string):Observable<any> {
+    return this.httpClient.post(this._url, { username, password }, {
+      withCredentials: true
+    });
+  }
+
+  testLogin() : Observable<any> {
+    return this.httpClient.get(this._testUrl, {
+      withCredentials: true
+    });
+  }
+
 }

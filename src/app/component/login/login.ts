@@ -27,11 +27,14 @@ export class Login{
     };
 
 
-    this._loginService.login(params)
+    this._loginService.newLogin(this.formData.username, this.formData.password)
       .subscribe({next: data => {this.user = data;
-        console.log(this.user)
       }})
 
 
+  }
+
+  onButtonClick() {
+  this._loginService.testLogin().subscribe({next: data => {console.log(data)}})
   }
 }

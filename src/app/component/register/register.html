@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link rel="stylesheet" href="register.css">
+</head>
+<body>
+<div class="register-wrapper">
+  <div class="register-box">
+    <h2>Konto erstellen</h2>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit()" method="post">
+      <div class="input-box">
+        <input type="text" name="username" [(ngModel)]="formData.username" placeholder="Benutzername" required>
+
+        <span></span>
+      </div>
+      <div class="input-box">
+        <input type="password" name="password" [(ngModel)]="formData.password" placeholder="Passwort" required>
+
+        <span></span>
+      </div>
+      <div class="input-box">
+        <input type="password" name="repeatedPassword"  [(ngModel)]="formData.repeatedPassword" placeholder="Passwort bestätigen" required>
+
+        <span></span>
+      </div>
+
+      < Hier status Text nachliefern />
+
+
+
+      <button type="submit" class="register-button">Registrieren</button>
+    </form>
+    <div class="login-link">
+      <a href="./login">Bereits registriert? Anmelden!</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
