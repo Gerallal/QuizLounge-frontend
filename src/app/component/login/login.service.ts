@@ -32,4 +32,10 @@ export class LoginService {
     });
   }
 
+  userLogin() : Observable<any> {
+    return this.httpClient.get(this._testUrl + '/zwei', {
+      withCredentials: true
+    });
+  }
+
 }
