@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { HttpParams } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,11 +16,12 @@ export class Login{
 
   public user:any;
 
-  constructor(private _loginService: LoginService) {
+  constructor(private _loginService: LoginService, private router: Router) {
 
   }
 
   formData = {username:"", password:""};
+
   onSubmit() {
     const params = {
       username: this.formData.username,
@@ -28,9 +30,11 @@ export class Login{
 
 
     this._loginService.login(this.formData.username, this.formData.password)
-      .subscribe({next: data => {this.user = data;
-      }})
-
+      .subscribe( data => {this.user = data;
+        if(this.user.success){
+          this.router.navigate(['home']);
+        }
+      })
 
   }
 

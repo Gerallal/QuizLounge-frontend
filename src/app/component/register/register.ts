@@ -31,6 +31,7 @@ export class Register {
     }
 
     console.log(this.user);
+    return `./home`;
   }
 
 }
