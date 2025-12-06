@@ -19,7 +19,7 @@ export class Friends implements OnInit {
   dataSource:MatTableDataSource<any> = new MatTableDataSource();
   friendRequests:any[] = [];
 
-  displayedColumns: string[] = ['sender', 'delete'];
+  displayedColumns: string[] = ['sender', 'decline', 'accept'];
 
 
   constructor(private friendsService: FriendsService) {
@@ -46,6 +46,16 @@ export class Friends implements OnInit {
   }
 
   accept(i:number) {
-    console.log(this.friendRequests[i].id);
+    console.log(i);
+    this.friendsService.acceptFriendRequest(this.friendRequests[i].id).subscribe({
+      next: (result) => {console.log(result);},
+    })
   }
+
+  decline(i:number) {
+    this.friendsService.declineFriendRequest(this.friendRequests[i].id).subscribe({
+      next: (result) => {console.log(result);},
+    })
+  }
+
 }

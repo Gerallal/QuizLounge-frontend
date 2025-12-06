@@ -14,12 +14,22 @@
       <td mat-cell *matCellDef="let friendRequest"> {{friendRequest.sender}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="delete">
+    <ng-container matColumnDef="accept">
       <th mat-header-cell *matHeaderCellDef> Akzeptieren</th>
       <td mat-cell *matCellDef="let i = index">
-        <button class="accept" (click)="accept(i)" >
-        </button>
+      <a href="javascript:void(0)" class="accept-text" (click)="accept(i)">
+        Akzeptieren
+      </a>
       </td>
+    </ng-container>
+
+      <ng-container matColumnDef="decline">
+        <th mat-header-cell *matHeaderCellDef> Ablehnen</th>
+        <td mat-cell *matCellDef="let i = index">
+        <a href="javascript:void(0)" class="accept-text" (click)="decline(i)">
+          Ablehnen!
+        </a>
+        </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
