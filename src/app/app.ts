@@ -6,10 +6,11 @@ import { Register } from "./component/register/register";
 import { Friends } from "./component/friends/friends";
 import { SolveQuiz } from './solve-quiz/solve-quiz';
 import { SolveQuizList } from './solve-quiz-list/solve-quiz-list';
+import { CreateQuiz } from './create-quiz/create-quiz';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Home, Login, Register, Friends, SolveQuiz, SolveQuizList],
+  imports: [RouterOutlet, Home, Login, Register, Friends, SolveQuiz, SolveQuizList, CreateQuiz],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -5,6 +5,7 @@ import {Friends} from './component/friends/friends';
 import {Home} from './component/home/home';
 import { SolveQuiz } from './solve-quiz/solve-quiz';
 import { SolveQuizList } from './solve-quiz-list/solve-quiz-list';
+import { CreateQuiz } from './create-quiz/create-quiz';
 
 export const routes: Routes = [
   {
@@ -37,6 +38,11 @@ export const routes: Routes = [
   {
     path: 'solveQuizList',
     component: SolveQuizList
+  },
+
+  {
+    path: 'create',
+    component: CreateQuiz
   }
 
 ];
