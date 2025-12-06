@@ -3,6 +3,7 @@ import {Login} from './component/login/login';
 import {Register} from './component/register/register';
 import {Friends} from './component/friends/friends';
 import {Home} from './component/home/home';
+import {CreateQuiz} from './component/create-quiz/create-quiz';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,11 @@ export const routes: Routes = [
   {
     path: 'home',
     component: Home
+  },
+
+  {
+    path: 'create',
+    component: CreateQuiz
   }
 
 ];
