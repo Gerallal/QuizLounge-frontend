@@ -14,7 +14,7 @@ import {Router} from '@angular/router';
 export class Login{
   public login: any[] = [];
 
-  public user:any;
+  public response:any;
 
   constructor(private _loginService: LoginService, private router: Router) {
 
@@ -30,8 +30,9 @@ export class Login{
 
 
     this._loginService.login(this.formData.username, this.formData.password)
-      .subscribe( data => {this.user = data;
-        if(this.user.success){
+      .subscribe( data => {
+        this.response = data;
+        if(this.response.success){
           this.router.navigate(['home']);
         }
       })

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RegisterService} from './register.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -14,8 +15,9 @@ import {RegisterService} from './register.service';
 export class Register {
 
   user = {username: '', id: 0};
+  response : any = {success : false};
 
-  constructor(private registerService: RegisterService ) {
+  constructor(private registerService: RegisterService, private router: Router ) {
   }
 
   public formData = {password: '', username: '', repeatedPassword: ''};
@@ -24,14 +26,13 @@ export class Register {
     if(this.formData.password === this.formData.repeatedPassword) {
       this.registerService.register(this.formData.username, this.formData.password).subscribe(
         data => {
-          this.user.username = data.username;
-          this.user.id = data.id;
+          this.response = data;
+          if(this.response.success){
+            this.router.navigate(['/home']);
+          }
         }
       );
     }
-
-    console.log(this.user);
-    return `./home`;
   }
 
 }
