@@ -4,10 +4,12 @@ import { Home } from "./component/home/home";
 import { Login } from "./component/login/login"
 import { Register } from "./component/register/register";
 import { Friends } from "./component/friends/friends";
+import { SolveQuiz } from './solve-quiz/solve-quiz';
+import { SolveQuizList } from './solve-quiz-list/solve-quiz-list';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Home, Login, Register, Friends],
+  imports: [RouterOutlet, Home, Login, Register, Friends, SolveQuiz, SolveQuizList],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
