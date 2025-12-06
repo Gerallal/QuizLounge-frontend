@@ -6,7 +6,7 @@ import { Register } from "./component/register/register";
 import { Friends } from "./component/friends/friends";
 import { SolveQuiz } from './solve-quiz/solve-quiz';
 import { SolveQuizList } from './solve-quiz-list/solve-quiz-list';
-import { CreateQuiz } from './create-quiz/create-quiz';
+import { CreateQuiz } from './component/create-quiz/create-quiz';
 
 @Component({
   selector: 'app-root',
