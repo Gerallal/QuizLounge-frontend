@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz lösen</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      padding: 30px;
+    }
+
+    .quiz-container {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .question {
+      margin-top: 25px;
+      padding: 15px;
+      border-left: 4px solid #007bff;
+      background: #f9f9f9;
+      border-radius: 5px;
+    }
+
+    .answers {
+      margin-top: 10px;
+    }
+
+    .answer {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .answer input {
+      margin-right: 10px;
+    }
+
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+
+    .wrong {
+      color: red;
+      font-weight: bold;
+    }
+
+    #result {
+      margin-top: 25px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+
+  <h1 id="quizTitle">Quiz Titel</h1>
+  <div class="showQuiz" *ngFor="let q of formData">
+    {{ q.title }}
+  </div>
+  <p id="quizDescription">Quiz Beschreibung</p>
+  <p><b>Kategorie:</b> <span id="quizCategory"></span></p>
+
+  <div id="questions"></div>
+
+  <button onclick="checkAnswers()">Überprüfen</button>
+
+  <p id="result"></p>
+
+</div>
+
+<script>
+  // Beispiel-Quizdaten — später per Backend ersetzen
+  const quiz = {
+    title: "Mathe Quiz",
+    description: "Einfaches Schul-Mathequiz",
+    category: "Mathematik",
+    questions: [
+      {
+        questionName: "Was ist 2 + 2?",
+        typeOfQuestion: "single",
+        answers: [
+          { text: "3", correct: false },
+          { text: "4", correct: true },
+          { text: "5", correct: false }
+        ]
+      },
+      {
+        questionName: "Welche sind Primzahlen?",
+        typeOfQuestion: "multiple",
+        answers: [
+          { text: "2", correct: true },
+          { text: "4", correct: false },
+          { text: "7", correct: true }
+        ]
+      }
+    ]
+  };
+
+  document.getElementById("quizTitle").innerText = quiz.title;
+  document.getElementById("quizDescription").innerText = quiz.description;
+  document.getElementById("quizCategory").innerText = quiz.category;
+
+  const questionsContainer = document.getElementById("questions");
+
+  quiz.questions.forEach((q, qi) => {
+    const block = document.createElement("div");
+    block.className = "question";
+
+    block.innerHTML = `
+      <h3>${q.questionName}</h3>
+      <div class="answers">
+        ${q.answers.map((a, ai) => `
+          <div class="answer">
+            <input
+              type="${q.typeOfQuestion === 'single' ? 'radio' : 'checkbox'}"
+              name="question${qi}"
+              value="${ai}">
+            <label>${a.text}</label>
+          </div>
+        `).join('')}
+      </div>
+    `;
+
+    questionsContainer.appendChild(block);
+  });
+
+  function checkAnswers() {
+    let correctCount = 0;
+
+    quiz.questions.forEach((q, qi) => {
+      const inputs = document.querySelectorAll(`input[name="question${qi}"]`);
+
+      inputs.forEach((input, ai) => {
+        const isCorrect = q.answers[ai].correct;
+        const isChecked = input.checked;
+
+        // Korrekt markiert
+        if (isCorrect && isChecked) {
+          correctCount++;
+          input.nextElementSibling.classList.add("correct");
+        }
+
+        // Falsch markiert
+        if (!isCorrect && isChecked) {
+          input.nextElementSibling.classList.add("wrong");
+        }
+      });
+    });
+
+    document.getElementById("result").innerText =
+      `Du hast ${correctCount} richtige Antworten!`;
+  }
+</script>
+
+</body>
+</html>

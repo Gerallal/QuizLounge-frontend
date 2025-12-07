@@ -2,15 +2,30 @@
 <div id="main">
   <h1>Quiz-Homepage</h1>
 
-  <!-- Button zum Anzeigen der Freunde -->
-  <button (click)="toggleFriends()">Deine Freunde anzeigen</button>
-
   <!-- Freunde-Bereich -->
   <div class="friends-section" *ngIf="showFriends">
     <h2>Deine Freunde</h2>
     <div class="friends-list">
       <div class="friend" *ngFor="let f of friends">
         {{ f.username }}
+      </div>
+      <div class="add-stuff">
+        +
+      </div>
+    </div>
+    <h2>Meine Quizze</h2>
+    <div class="friends-list">
+      <div class="friend" *ngFor="let q of myQuizzes">
+        {{ q.title }}
+      </div>
+      <div class="add-stuff">
+        +
+      </div>
+    </div>
+    <h2>Quizze meiner Freunde</h2>
+    <div class="friends-list">
+      <div class="friend" *ngFor="let f of friends">
+
       </div>
     </div>
   </div>

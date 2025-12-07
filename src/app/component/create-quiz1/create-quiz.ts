@@ -4,7 +4,7 @@ import {Router} from '@angular/router';
 import {CreateQuizService} from './create-quiz-service';
 
 @Component({
-  selector: 'app-create-quiz',
+  selector: 'app-create-quiz1',
   imports: [
     FormsModule,
     ReactiveFormsModule
@@ -12,7 +12,7 @@ import {CreateQuizService} from './create-quiz-service';
   templateUrl: './create-quiz.html',
   styleUrl: './create-quiz.css',
 })
-export class CreateQuiz {
+export class CreateQuiz1 {
 
   public formData = {title: '', category: '', description: ''};
 
@@ -22,12 +22,14 @@ export class CreateQuiz {
   }
   onSubmit(){
     console.log(this.formData);
-    this.createQuizService.createQuiz(this.formData.title,
-                                      this.formData.description,
-                                      this.formData.category).subscribe(
-                                        data => {
-                                          this.successMessage = data;
-                                        }
-    );
+    this.createQuizService.createQuiz(
+      this.formData.title,
+      this.formData.description,
+      this.formData.category
+    ).subscribe(id => {
+          this.createQuizService.quizId = id;
+          console.log("Id: ", id);
+          this.router.navigate(['/create2']);
+    });
   }
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HomeService, User} from './home.service';
+import {HomeService, User, Quiz} from './home.service';
 import {LoginService} from '../login/login.service';
 import {NgForOf, NgIf} from '@angular/common';
 
@@ -13,7 +13,8 @@ export class Home implements OnInit{
   friends: User[] = [];
   currentUser!: User;
   //public listName:string = "My Quizzes";
-  showFriends = false;
+  showFriends = true;
+  myQuizzes: Quiz[] = [];
 
 
   constructor(
@@ -23,10 +24,7 @@ export class Home implements OnInit{
 
   ngOnInit() {
     this.loadCurrentUserAndFriends();
-  }
-
-  toggleFriends() {
-    this.showFriends = !this.showFriends;
+    this.loadMyQuizzes();
   }
 
   private loadCurrentUserAndFriends() {
@@ -38,6 +36,22 @@ export class Home implements OnInit{
         this.homeService.getFriends(user.id).subscribe({
           next: (response) => {
             this.friends = response;
+            //console.log('Freunde:', response);
+          }
+        });
+      }
+    });
+  }
+
+  private loadMyQuizzes() {
+    this.loginService.userLogin().subscribe({
+      next: (user) => {
+        this.currentUser = user;
+        //console.log('Eingeloggt als:', user);
+
+        this.homeService.getMyQuiz(user.id).subscribe({
+          next: (response) => {
+            this.myQuizzes = response;
             //console.log('Freunde:', response);
           }
         });
