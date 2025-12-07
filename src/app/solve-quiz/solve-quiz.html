@@ -8,6 +8,25 @@
 <body>
     <!-- BITTE LESEN!
      Es wird aus Testzwecken erstmal ein Quiz statisch dagezeigt, um die funktionalität vom AI auszuprobieren -->
-     <p>works!</p>
+     <form #solveQuestionForm="ngForm" (ngSubmit)="onSubmit()" method="post">
+    <p>Löse die Frage</p>
+
+    <div>
+        <input type="text"
+               name="question"
+               [(ngModel)]="formData.question"
+               placeholder="Was ist die Hauptstadt von Deutschland?"
+               readonly>
+
+        <input type="text"
+               name="answer"
+               [(ngModel)]="formData.answer"
+               placeholder="Deine Antwort"
+               required>
+
+        <button type="submit" class="getResult-button">Ergebnis</button>
+    </div>
+</form>
+
 </body>
 </html>
