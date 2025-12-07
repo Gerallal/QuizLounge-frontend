@@ -13,7 +13,7 @@ export class Home implements OnInit{
   friends: User[] = [];
   currentUser!: User;
   //public listName:string = "My Quizzes";
-  showFriends = false;
+  showFriends = true;
 
 
   constructor(
