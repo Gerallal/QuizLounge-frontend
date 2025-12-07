@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HomeService, User, Quiz} from './home.service';
 import {LoginService} from '../login/login.service';
 import {NgForOf, NgIf} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,12 +20,19 @@ export class Home implements OnInit{
 
   constructor(
     private homeService: HomeService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router,
   ) {}
 
   ngOnInit() {
     this.loadCurrentUserAndFriends();
     this.loadMyQuizzes();
+  }
+
+  openQuiz(quiz: Quiz) {
+    console.log(quiz);
+    console.log(quiz.id);
+    this.router.navigate(['/home/myQuiz', quiz.id]);
   }
 
   private loadCurrentUserAndFriends() {

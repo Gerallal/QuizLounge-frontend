@@ -16,7 +16,9 @@
     <h2>Meine Quizze</h2>
     <div class="friends-list">
       <div class="friend" *ngFor="let q of myQuizzes">
-        {{ q.title }}
+        <button (click)="openQuiz(q)">
+          {{ q.title }}
+        </button>
       </div>
       <div class="add-stuff">
         +

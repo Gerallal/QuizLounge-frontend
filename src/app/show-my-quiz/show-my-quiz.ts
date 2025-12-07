@@ -11,8 +11,8 @@ import {CreateQuizService2} from '../create-quiz2/create-quiz-service';
 
 @Component({
   selector: 'app-home',
-  imports: [NgForOf, NgIf],
-  templateUrl: './show-my-quiz.html.html',
+  imports: [NgForOf],
+  templateUrl: './show-my-quiz.html',
   styleUrl: './show-my-quiz.css',
 })
 
@@ -22,6 +22,7 @@ export class ShowMyQuiz implements OnInit{
 
   public formData: Quiz[] = [
     {
+      id: 1,
       title: '',
       description: '',
       category: ''

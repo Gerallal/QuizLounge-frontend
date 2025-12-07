@@ -52,7 +52,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'showMyQuiz',
+    path: 'myQuiz/:id',
     component: ShowMyQuiz
   }
 

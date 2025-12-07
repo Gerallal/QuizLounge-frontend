@@ -8,6 +8,7 @@ export interface User {
 }
 
 export interface Quiz {
+  id: number;
   title: string;
   description: string;
   category: string;
