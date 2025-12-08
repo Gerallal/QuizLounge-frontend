@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {Router} from '@angular/router';
-import {CreateQuizService} from './create-quiz-service';
+import {CreateQuizService1} from './create-quiz-service';
 
 @Component({
   selector: 'app-create-quiz1',
@@ -14,22 +14,22 @@ import {CreateQuizService} from './create-quiz-service';
 })
 export class CreateQuiz1 {
 
-  public formData = {title: '', category: '', description: ''};
+  title = "";
+  description = "";
+  category = "";
 
-  successMessage: string = "";
+  constructor(private router: Router, private createQuizService1: CreateQuizService1) {}
 
-  constructor(private router: Router, private createQuizService: CreateQuizService) {
-  }
   onSubmit(){
-    console.log(this.formData);
-    this.createQuizService.createQuiz(
-      this.formData.title,
-      this.formData.description,
-      this.formData.category
-    ).subscribe(id => {
-          this.createQuizService.quizId = id;
-          console.log("Id: ", id);
-          this.router.navigate(['/create2']);
+    const payload = {
+      id: 0,
+      title: this.title,
+      description: this.description,
+      category: this.category
+    };
+
+    this.createQuizService1.createQuiz(payload).subscribe((result: any) => {
+      this.router.navigate(['/create-quiz2', result.id]);
     });
   }
 }

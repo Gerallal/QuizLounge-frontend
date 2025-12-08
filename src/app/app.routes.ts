@@ -47,7 +47,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'create2',
+    path: 'create-quiz2/:id',
     component: CreateQuiz2
   },
 

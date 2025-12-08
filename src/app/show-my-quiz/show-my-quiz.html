@@ -1,30 +1,17 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <title>Quiz lösen</title>
-</head>
-<body>
+<div class="quiz-container" *ngIf="quiz">
 
-<div class="quiz-container">
+  <h1>{{ quiz.title }}</h1>
+  <p>{{ quiz.description }}</p>
 
-  <h1 id="quizTitle">
-    <div class="showQuiz" *ngFor="let q of formData">
-      {{ q.title }}
-    </div>
-  </h1>
+  <div *ngFor="let q of quiz.questions; let qi = index">
+    <h3>Frage {{ qi + 1 }}: {{ q.questionName }}</h3>
 
-  <div class="showQuiz" *ngFor="let q of formData">
-    {{ q.description }}
+    <ul>
+      <li *ngFor="let ans of q.answers">
+        {{ ans.text }}
+      </li>
+    </ul>
   </div>
-
-  <div id="questions"></div>
-
-  <button onclick="checkAnswers()">Überprüfen</button>
-
-  <p id="result"></p>
 
 </div>
 
-</body>
-</html>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {Question} from './create-quiz2';
 
 @Injectable({
   providedIn: 'root',
@@ -8,15 +9,10 @@ import {HttpClient} from '@angular/common/http';
 export class CreateQuizService2 {
 
   _url = "http://localhost:8080/quizlounge/api/quiz/create2";
-  title: string = '';
-  description: string = '';
-  category: string = '';
 
-  constructor(private httpClient: HttpClient) {
-  }
+  constructor(private httpClient: HttpClient) {}
 
-
-  createQuiz(payload: any) : Observable<any> {
+  createQuiz(payload: any) {
     return this.httpClient.post(this._url, payload, {
       withCredentials: true
     });

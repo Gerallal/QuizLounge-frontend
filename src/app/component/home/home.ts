@@ -32,7 +32,7 @@ export class Home implements OnInit{
   openQuiz(quiz: Quiz) {
     console.log(quiz);
     console.log(quiz.id);
-    this.router.navigate(['/home/myQuiz', quiz.id]);
+    this.router.navigate(['/myQuiz/', quiz.id]);
   }
 
   private loadCurrentUserAndFriends() {

@@ -5,20 +5,14 @@ import {HttpClient} from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class CreateQuizService {
+export class CreateQuizService1 {
 
-  _url = "http://localhost:8080/quizlounge/api/quiz";
+  _url = "http://localhost:8080/quizlounge/api/quiz/create1";
 
-  quizId: number | null = null;
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(private httpClient: HttpClient) {
-  }
-
-
-  createQuiz(title:string, description:string, category:string) : Observable<any> {
-    return this.httpClient.post(`${this._url}/create1`,
-      {title, description, category},
-      {withCredentials: true});
+  createQuiz(meta: any) {
+    return this.httpClient.post(this._url, meta, {withCredentials: true});
   }
 
 }

@@ -9,12 +9,12 @@
 <body>
 <div class="quiz-container">
   <h1>Quiz erstellen</h1>
-  <form #loginForm="ngForm" (ngSubmit)="onSubmit()" method="post">
+  <form (ngSubmit)="onSubmit()" #quizForm="ngForm" method="post">
     <label for="title">Titel:</label>
-    <input type="text" id="title" [(ngModel)]="formData.title" [ngModelOptions]="{standalone: true}" required placeholder="Titel"/>
+    <input type="text" id="title" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" required placeholder="Titel"/>
 
     <label for="category">Kategorie:</label>
-    <select id="category" [(ngModel)]="formData.category" [ngModelOptions]="{standalone: true}" required>
+    <select id="category" [(ngModel)]="category" [ngModelOptions]="{standalone: true}" required>
       <option value="" disabled selected>Kategorie wählen</option>
       <option value="Mathematik">Mathematik</option>
       <option value="Deutsch">Deutsch</option>
@@ -29,7 +29,7 @@
     </select>
 
     <label for="description">Beschreibung:</label>
-    <textarea id="description" [(ngModel)]="formData.description" [ngModelOptions]="{standalone: true}" placeholder="Beschreibung"></textarea>
+    <textarea id="description" [(ngModel)]="description" [ngModelOptions]="{standalone: true}" placeholder="Beschreibung"></textarea>
 
     <button type="submit">Fortfahren</button>
   </form>

@@ -1,6 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Component, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
 
 export interface User {
   id: number;
@@ -12,7 +14,20 @@ export interface Quiz {
   title: string;
   description: string;
   category: string;
+  questions: Question[];
 }
+
+export interface Question {
+  questionName: string;
+  typeOfQuestion: string;
+  answers: Answer[];
+}
+
+export interface Answer {
+  text: string;
+  correct: boolean;
+}
+
 
 @Injectable({
   providedIn: 'root',

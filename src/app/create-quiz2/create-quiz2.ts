@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CreateQuizService2} from './create-quiz-service';
 
 export interface Question {
@@ -25,36 +25,38 @@ export interface Answer {
   templateUrl: './create-quiz2.html',
   styleUrl: './create-quiz2.css',
 })
-export class CreateQuiz2 {
+export class CreateQuiz2 implements OnInit {
 
-  // @ts-ignore
-  public formData: Question[] = [
+  quizId!: number;
+
+  formData: Question[] = [
     {
       questionName: '',
       typeOfQuestion: 'single',
-      answers: [
-        { text: '', correct: false },
-    ]}];
+      answers: [{ text: '', correct: false }]
+    }
+    ];
 
-  constructor(private router: Router, private createQuizService2: CreateQuizService2) {
-  }
+  constructor(private router: Router, private createQuizService2: CreateQuizService2, private route: ActivatedRoute) { }
+
+  ngOnInit() {
+        // @ts-ignore
+    this.quizId = Number(this.route.snapshot.paramMap.get('id'));
+    }
 
   onSubmit(){
     const payload = {
-      title: this.createQuizService2.title,
-      description: this.createQuizService2.description,
-      category: this.createQuizService2.category,
+      id: this.quizId,
+      title: "",
+      description: "",
+      category: "",
       questions: this.formData
-    }
-    this.createQuizService2.createQuiz(payload)
-      .subscribe(result => {
-        console.log(result);
-        //this.router.navigate(['/']);
-      })
-    console.log(this.formData);
-    console.log(payload);
-    this.router.navigate(['./home']);
+    };
 
+    this.createQuizService2.createQuiz(payload)
+      .subscribe(() => {
+        this.router.navigate(['/home']);
+      });
   }
 
   addQuestion(){
