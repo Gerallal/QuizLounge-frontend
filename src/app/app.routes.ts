@@ -6,6 +6,7 @@ import {Home} from './component/home/home';
 import { SolveQuiz } from './solve-quiz/solve-quiz';
 import { SolveQuizList } from './solve-quiz-list/solve-quiz-list';
 import { CreateQuiz } from './component/create-quiz/create-quiz';
+import {AddQuestion} from './component/add-question/add-question';
 
 export const routes: Routes = [
   {
@@ -43,6 +44,11 @@ export const routes: Routes = [
   {
     path: 'create',
     component: CreateQuiz
+  },
+
+  {
+    path: 'add-question',
+    component: AddQuestion
   }
 
 ];
