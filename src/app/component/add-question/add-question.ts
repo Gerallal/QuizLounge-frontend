@@ -1,6 +1,8 @@
-import {booleanAttribute, Component} from '@angular/core';
+import {booleanAttribute, Component, Input, OnInit} from '@angular/core';
 import {AbstractControl, FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {NgForOf} from '@angular/common';
+import {ActivatedRoute} from '@angular/router';
+import {AddQuestionService} from './add-question-service';
 
 
 
@@ -14,11 +16,13 @@ import {NgForOf} from '@angular/common';
   templateUrl: './add-question.html',
   styleUrl: './add-question.css',
 })
-export class AddQuestion {
+export class AddQuestion implements OnInit {
 
   public form : any;
+  quizId: number = -9999;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private route : ActivatedRoute,
+              private addQuestionService : AddQuestionService) {
 
     this.form = this.fb.group({
       questionType: ['MultipleAnswerQuestion', Validators.required],
@@ -26,6 +30,12 @@ export class AddQuestion {
       answers: this.fb.array([]),
     })
     this.addAnswer()
+  }
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.quizId = params['id']; // ID kommt aus der Route
+    });
   }
 
   get answers(){
@@ -72,7 +82,10 @@ export class AddQuestion {
     })
     console.log(this.answers.value);
 
-    console.log(this.form.value);
+    let values = this.form.value;
+    values.quizId = this.quizId;
+
+    this.addQuestionService.addQuestion(values).subscribe(x => console.log(x));
   }
 
 

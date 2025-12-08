@@ -27,6 +27,7 @@ export class CreateQuiz {
                                       this.formData.category).subscribe(
                                         data => {
                                           this.successMessage = data;
+                                          this.router.navigate(['add-question', data.quizId]);
                                         }
     );
   }

@@ -47,7 +47,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'add-question',
+    path: 'add-question/:id',
     component: AddQuestion
   }
 
