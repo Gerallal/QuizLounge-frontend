@@ -5,9 +5,8 @@ import {Friends} from './component/friends/friends';
 import {Home} from './component/home/home';
 import { SolveQuiz } from './solve-quiz/solve-quiz';
 import { SolveQuizList } from './solve-quiz-list/solve-quiz-list';
-import {CreateQuiz1} from './component/create-quiz1/create-quiz';
-import {CreateQuiz2} from './create-quiz2/create-quiz2';
-import {ShowMyQuiz} from './show-my-quiz/show-my-quiz';
+import { CreateQuiz } from './component/create-quiz/create-quiz';
+import {AddQuestion} from './component/add-question/add-question';
 
 export const routes: Routes = [
   {
@@ -26,6 +25,7 @@ export const routes: Routes = [
     path: 'friends',
     component: Friends
   },
+
   {
     path: 'home',
     component: Home
@@ -42,18 +42,13 @@ export const routes: Routes = [
   },
 
   {
-    path: 'create1',
-    component: CreateQuiz1
+    path: 'create',
+    component: CreateQuiz
   },
 
   {
-    path: 'create-quiz2/:id',
-    component: CreateQuiz2
-  },
-
-  {
-    path: 'myQuiz/:id',
-    component: ShowMyQuiz
+    path: 'add-question/:id',
+    component: AddQuestion
   }
 
 ];
