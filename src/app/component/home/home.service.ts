@@ -33,21 +33,28 @@ export interface Answer {
   providedIn: 'root',
 })
 export class HomeService {
-  private _url1:string = "http://localhost:8080/quizlounge/api/home/";
-  private _url2:string = "http://localhost:8080/quizlounge/api/quiz/home/";
+  private _url:string = "http://localhost:8080/quizlounge/api/";
 
   constructor(private httpClient:HttpClient) {
   }
 
   getFriends(userId: number): Observable<User[]> {
-    return this.httpClient.get<User[]>(this._url1  + userId + "/friends", {
+    return this.httpClient.get<User[]>(this._url  + "home/" + userId + "/friends", {
       withCredentials: true
     });
   }
 
   getMyQuiz(author_id: number): Observable<Quiz[]> {
-    return this.httpClient.get<Quiz[]>(this._url2 + author_id + "/create1", {
+    return this.httpClient.get<Quiz[]>(this._url + "quiz/home/" + author_id + "/create1", {
       withCredentials: true
     })
   }
+
+  getSendQuizzesOfMyFriends(userId: number) {
+    return this.httpClient.get<Quiz[]>(this._url + "home/" + "received/" + userId, {
+      withCredentials: true
+    })
+  }
+
+
 }

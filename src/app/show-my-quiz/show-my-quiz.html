@@ -1,17 +1,43 @@
-<div class="quiz-container" *ngIf="quiz">
+<div class="quiz-page" *ngIf="quiz">
 
-  <h1>{{ quiz.title }}</h1>
-  <p>{{ quiz.description }}</p>
+  <div class="quiz-header">
+    <h1>{{ quiz.title }}</h1>
 
-  <div *ngFor="let q of quiz.questions; let qi = index">
-    <h3>Frage {{ qi + 1 }}: {{ q.questionName }}</h3>
+    <div class="actions">
+      <button (click)="shareMyQuiz()" [disabled]="!selectedFriend">
+        Teilen
+      </button>
 
-    <ul>
-      <li *ngFor="let ans of q.answers">
-        {{ ans.text }}
-      </li>
-    </ul>
+      <select [(ngModel)]="selectedFriend">
+        <option [ngValue]="undefined">– Freund auswählen –</option>
+        <option *ngFor="let f of friends" [ngValue]="f">
+          {{ f.username }}
+        </option>
+      </select>
+
+      <button (click)="editMyQuiz()">Bearbeiten</button>
+      <button (click)="deleteMyQuiz()">Löschen</button>
+    </div>
+  </div>
   </div>
 
-</div>
+  <div class="questions">
+    <div *ngFor="let q of quiz?.questions; let qi = index">
+      <h3>Frage {{ qi + 1 }}: {{ q.questionName }}</h3>
+
+      <div class="answers">
+        <label *ngFor="let ans of q.answers">
+          <input type="radio" disabled/>
+          <span class="answer-text">{{ans.text}}</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="solve-wrapper">
+    <button class="solve-btn">Lösen</button>
+  </div>
+
+
+
 

@@ -13,9 +13,9 @@ import {Router} from '@angular/router';
 export class Home implements OnInit{
   friends: User[] = [];
   currentUser!: User;
-  //public listName:string = "My Quizzes";
   showFriends = true;
   myQuizzes: Quiz[] = [];
+  receivedQuizzes!: Quiz[];
 
 
   constructor(
@@ -27,12 +27,19 @@ export class Home implements OnInit{
   ngOnInit() {
     this.loadCurrentUserAndFriends();
     this.loadMyQuizzes();
+    this.loadSendQuizzesOfMyFriends();
   }
 
-  openQuiz(quiz: Quiz) {
+  openMyQuiz(quiz: Quiz) {
     console.log(quiz);
     console.log(quiz.id);
     this.router.navigate(['/myQuiz/', quiz.id]);
+  }
+
+  openTheirQuiz(quiz: Quiz) {
+    console.log(quiz);
+    console.log(quiz.id);
+    //this.router.navigate(['/myQuiz/', quiz.id]);
   }
 
   private loadCurrentUserAndFriends() {
@@ -61,6 +68,20 @@ export class Home implements OnInit{
           next: (response) => {
             this.myQuizzes = response;
             //console.log('Freunde:', response);
+          }
+        });
+      }
+    });
+  }
+
+  private loadSendQuizzesOfMyFriends() {
+    this.loginService.userLogin().subscribe({
+      next: (user) => {
+        this.currentUser = user;
+
+        this.homeService.getSendQuizzesOfMyFriends(user.id).subscribe({
+          next: (response) => {
+            this.receivedQuizzes = response;
           }
         });
       }
