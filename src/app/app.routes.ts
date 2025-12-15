@@ -7,6 +7,7 @@ import { SolveQuiz } from './solve-quiz/solve-quiz';
 import { SolveQuizList } from './solve-quiz-list/solve-quiz-list';
 import { CreateQuiz } from './component/create-quiz/create-quiz';
 import {AddQuestion} from './component/add-question/add-question';
+import {Solve} from './component/solve/solve';
 
 export const routes: Routes = [
   {
@@ -49,6 +50,11 @@ export const routes: Routes = [
   {
     path: 'add-question/:id',
     component: AddQuestion
+  },
+
+  {
+    path: 'solve/:quizId',
+    component: Solve
   }
 
 ];

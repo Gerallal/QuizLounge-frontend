@@ -8,11 +8,12 @@ import { SolveQuiz } from './solve-quiz/solve-quiz';
 import { SolveQuizList } from './solve-quiz-list/solve-quiz-list';
 import { CreateQuiz } from './component/create-quiz/create-quiz';
 import {AddQuestion} from './component/add-question/add-question';
+import {Solve} from './component/solve/solve';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, RouterLink, Home, Login, Register, Friends, SolveQuiz, SolveQuizList, CreateQuiz,
-  AddQuestion],
+  AddQuestion, Solve],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
