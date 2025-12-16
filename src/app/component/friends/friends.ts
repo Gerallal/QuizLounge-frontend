@@ -14,6 +14,7 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
   templateUrl: './friends.html',
   styleUrl: './friends.css',
 })
+
 export class Friends implements OnInit {
   public friend: string = "";
   dataSource:MatTableDataSource<any> = new MatTableDataSource();

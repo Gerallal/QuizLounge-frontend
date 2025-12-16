@@ -1,32 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {ActivatedRoute} from '@angular/router';
-
-export interface Quiz {
-  id: number;
-  title: string;
-  description: string;
-  category: string;
-  questions: Question[];
-}
-
-export interface Question {
-  questionName: string;
-  typeOfQuestion: string;
-  answers: Answer[];
-}
-
-export interface Answer {
-  text: string;
-  correct: boolean;
-}
-
-export interface User {
-  username: string;
-  id: number;
-  friends: User[];
-}
+import { User } from '../../models/user-model';
+import { Quiz } from '../../models/quiz-model';
 
 @Injectable({
   providedIn: 'root',

@@ -1,119 +1,100 @@
+/* Reset / Basis */
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
   margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #b791df, #a3c5ff);
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.register-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1d1f27, #2c2f3a);
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  padding: 20px;
+  color: #fff;
 }
 
-.register-box {
-  background: white;
-  padding: 40px 30px;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+/* Wrapper */
+.auth-wrapper {
   width: 100%;
-  max-width: 400px;
-  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.register-box h2 {
+/* Box */
+.auth-box {
+  width: 360px;
+  background: #222531;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
   text-align: center;
-  color: #333;
-  margin-bottom: 30px;
 }
 
-/* Eingabefelder */
+.auth-box h2 {
+  margin-bottom: 25px;
+}
+
+/* Inputs */
 .input-box {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .input-box input {
   width: 100%;
-  padding: 10px 0;
+  padding: 12px;
+  border-radius: 6px;
   border: none;
-  border-bottom: 2px solid #ccc;
-  font-size: 16px;
-  background: transparent;
   outline: none;
-  color: #333;
-}
-
-.input-box label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px 0;
-  color: #999;
+  background: #2f3344;
+  color: #fff;
   font-size: 14px;
-  pointer-events: none;
-  transition: 0.3s ease;
 }
 
-.input-box span::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  width: 0%;
-  background: linear-gradient(135deg, #b791df, #a3c5ff);
-  transition: 0.4s;
+.input-box input::placeholder {
+  color: #aaa;
 }
 
-.input-box input:focus ~ label,
-.input-box input:valid ~ label {
-  top: -20px;
-  left: 0;
-  font-size: 12px;
-  color: #aa31ff;
-}
-
-.input-box input:focus ~ span::before,
-.input-box input:valid ~ span::before {
-  width: 100%;
-}
-
-/* Button */
-.register-button {
+/* Buttons */
+.auth-button {
   width: 100%;
   padding: 12px;
-  background: #b791df;
   border: none;
-  border-radius: 30px;
+  border-radius: 6px;
+  background: #4c7dff;
   color: white;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: background 0.3s;
 }
 
-.register-button:hover {
-  opacity: 0.9;
+.auth-button:hover {
+  background: #3a63d8;
 }
 
-/* Link zur Anmeldung */
-.login-link {
-  margin-top: 20px;
-  text-align: center;
+/* Links */
+.auth-link {
+  margin-top: 15px;
   font-size: 14px;
 }
 
-.login-link a {
-  color: #aa31ff;
+.auth-link a {
+  color: #7da2ff;
   text-decoration: none;
 }
 
-.login-link a:hover {
+.auth-link a:hover {
   text-decoration: underline;
+}
+
+.status-text {
+  font-size: 13px;
+  margin: 10px 0;
+  color: #ff8080;
+}
+
+h2 {
+  color: aliceblue;
 }

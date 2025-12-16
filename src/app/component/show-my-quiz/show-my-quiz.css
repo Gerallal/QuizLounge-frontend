@@ -1,0 +1,128 @@
+/* Grundlayout */
+.quiz-page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #222531;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+/* Header */
+.quiz-header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.quiz-header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+/* Aktionen (Teilen / Bearbeiten / Löschen) */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Buttons allgemein */
+.actions button,
+.solve-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #4c7dff;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.25s, opacity 0.25s;
+}
+
+.actions button:hover,
+.solve-btn:hover {
+  background: #3a63d8;
+}
+
+.actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Select (Freund auswählen) */
+.actions select {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #2f3344;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+/* Fragenbereich */
+.questions {
+  margin-top: 30px;
+}
+
+.questions > div {
+  background: #2a2e3f;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Frage */
+.questions h3 {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+}
+
+/* Antworten */
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.answers label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: #34384a;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.answers label:hover {
+  background: #3c4157;
+}
+
+/* Radio Button */
+.answers input[type="radio"] {
+  accent-color: #4c7dff;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/* Antworttext */
+.answer-text {
+  font-size: 14px;
+}
+
+/* Lösen-Button unten */
+.solve-wrapper {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.solve-btn {
+  font-size: 16px;
+  padding: 12px 30px;
+}

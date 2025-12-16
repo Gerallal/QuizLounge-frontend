@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
+
 export class CreateQuizService1 {
 
   _url = "http://localhost:8080/quizlounge/api/quiz/create1";

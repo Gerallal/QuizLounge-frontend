@@ -6,6 +6,7 @@ import { ILogin } from './model/login';
 @Injectable({
   providedIn: 'root',
 })
+
 export class LoginService {
 
   private _url:string = "http://localhost:8080/quizlounge/api/login";

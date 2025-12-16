@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RegisterService} from './register.service';
 import {Router} from '@angular/router';
 
@@ -12,6 +12,7 @@ import {Router} from '@angular/router';
   templateUrl: './register.html',
   styleUrl: './register.css',
 })
+
 export class Register {
 
   user = {username: '', id: 0};
@@ -35,4 +36,5 @@ export class Register {
     }
   }
 
+  protected readonly status = status;
 }

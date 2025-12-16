@@ -12,11 +12,12 @@ import {CreateQuizService1} from './create-quiz-service';
   templateUrl: './create-quiz.html',
   styleUrl: './create-quiz.css',
 })
+
 export class CreateQuiz1 {
 
   title = "";
   description = "";
-  category = "";
+  selectedCategory = "";
 
   constructor(private router: Router, private createQuizService1: CreateQuizService1) {}
 
@@ -25,7 +26,7 @@ export class CreateQuiz1 {
       id: 0,
       title: this.title,
       description: this.description,
-      category: this.category
+      category: this.selectedCategory
     };
 
     this.createQuizService1.createQuiz(payload).subscribe((result: any) => {

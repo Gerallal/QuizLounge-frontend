@@ -3,7 +3,7 @@
   <div class="quiz-header">
     <h1>{{ quiz.title }}</h1>
 
-    <div class="actions">
+    <div class="actions" *ngIf="quiz && currentUser && quiz.author.id === currentUser.id">
       <button (click)="shareMyQuiz()" [disabled]="!selectedFriend">
         Teilen
       </button>
@@ -19,15 +19,14 @@
       <button (click)="deleteMyQuiz()">Löschen</button>
     </div>
   </div>
-  </div>
 
   <div class="questions">
-    <div *ngFor="let q of quiz?.questions; let qi = index">
+    <div *ngFor="let q of quiz.questions; let qi = index">
       <h3>Frage {{ qi + 1 }}: {{ q.questionName }}</h3>
 
       <div class="answers">
         <label *ngFor="let ans of q.answers">
-          <input type="radio" disabled/>
+          <input type="radio"/>
           <span class="answer-text">{{ans.text}}</span>
         </label>
       </div>
@@ -37,6 +36,8 @@
   <div class="solve-wrapper">
     <button class="solve-btn">Lösen</button>
   </div>
+
+</div>
 
 
 

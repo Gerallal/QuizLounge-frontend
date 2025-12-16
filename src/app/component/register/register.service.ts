@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
+
 export class RegisterService {
 
   private _url:string = "http://localhost:8080/quizlounge/api/register";

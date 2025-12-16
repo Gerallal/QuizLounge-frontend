@@ -3,17 +3,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CreateQuizService2} from './create-quiz-service';
-
-export interface Question {
-  questionName: string;
-  typeOfQuestion: string;
-  answers: Answer[];
-}
-
-export interface Answer {
-  text: string;
-  correct: boolean;
-}
+import {Question} from '../../models/question-model';
 
 @Component({
   selector: 'app-create-quiz2',
@@ -40,7 +30,6 @@ export class CreateQuiz2 implements OnInit {
   constructor(private router: Router, private createQuizService2: CreateQuizService2, private route: ActivatedRoute) { }
 
   ngOnInit() {
-        // @ts-ignore
     this.quizId = Number(this.route.snapshot.paramMap.get('id'));
     }
 

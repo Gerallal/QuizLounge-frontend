@@ -4,12 +4,14 @@
 
   <!-- Freunde-Bereich -->
   <div class="friends-section" *ngIf="showFriends">
-    <h2>Deine Freunde</h2>
+    <h2>Meine Freunde</h2>
     <div class="friends-list">
       <div class="friend" *ngFor="let f of friends">
-        {{ f.username }}
+        <button (click)="openFriends(f.id)">
+          {{ f.username }}
+        </button>
       </div>
-      <div class="add-stuff">
+      <div class="add-stuff" (click)="openFriendPage()">
         +
       </div>
     </div>
@@ -20,7 +22,7 @@
           {{ q.title }}
         </button>
       </div>
-      <div class="add-stuff">
+      <div class="add-stuff" (click)="openAddQuiz()">
         +
       </div>
     </div>
@@ -30,9 +32,6 @@
         <button (click)="openTheirQuiz(f)">
           {{ f.title }}
         </button>
-      </div>
-      <div class="add-stuff">
-        +
       </div>
     </div>
   </div>

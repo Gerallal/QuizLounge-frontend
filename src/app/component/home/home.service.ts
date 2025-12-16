@@ -1,33 +1,8 @@
-import {Component, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {CommonModule} from '@angular/common';
-
-export interface User {
-  id: number;
-  username: string;
-}
-
-export interface Quiz {
-  id: number;
-  title: string;
-  description: string;
-  category: string;
-  questions: Question[];
-}
-
-export interface Question {
-  questionName: string;
-  typeOfQuestion: string;
-  answers: Answer[];
-}
-
-export interface Answer {
-  text: string;
-  correct: boolean;
-}
-
+import { User } from '../../models/user-model';
+import { Quiz } from '../../models/quiz-model';
 
 @Injectable({
   providedIn: 'root',
@@ -46,6 +21,12 @@ export class HomeService {
 
   getMyQuiz(author_id: number): Observable<Quiz[]> {
     return this.httpClient.get<Quiz[]>(this._url + "quiz/home/" + author_id + "/create1", {
+      withCredentials: true
+    })
+  }
+
+  getTheirQuiz(userId: number): Observable<Quiz[]> {
+    return this.httpClient.get<Quiz[]>(this._url + "quiz/home/" + userId + "/create1", {
       withCredentials: true
     })
   }

@@ -1,0 +1,28 @@
+<div class="friend-profile">
+
+  <!-- Header -->
+  <div class="profile-header" *ngIf="friend">
+    <h2>{{ friend.username }}</h2>
+  </div>
+
+  <button (click)="console.log(friend)">   </button>
+
+
+  <!-- Name + Action -->
+  <div class="profile-main">
+    <h1 class="friend-name">Name des Freundes</h1>
+    <button class="danger-btn">Entfreunden</button>
+  </div>
+
+  <!-- Shared quizzes -->
+  <div class="shared-quizzes">
+    <h3>Geteilte Quizze</h3>
+
+    <div class="quiz-list">
+      <div class="quiz-card" *ngFor="let quiz of friend?.receivedQuizzes">
+        {{ quiz.title }}
+      </div>
+    </div>
+  </div>
+
+</div>

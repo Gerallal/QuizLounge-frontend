@@ -4,10 +4,11 @@ import {Register} from './component/register/register';
 import {Friends} from './component/friends/friends';
 import {Home} from './component/home/home';
 import { SolveQuiz } from './solve-quiz/solve-quiz';
-import { SolveQuizList } from './solve-quiz-list/solve-quiz-list';
+import { SolveQuizList } from './component/solve-quiz-list/solve-quiz-list';
 import {CreateQuiz1} from './component/create-quiz1/create-quiz';
-import {CreateQuiz2} from './create-quiz2/create-quiz2';
-import {ShowMyQuiz} from './show-my-quiz/show-my-quiz';
+import {CreateQuiz2} from './component/create-quiz2/create-quiz2';
+import {ShowMyQuiz} from './component/show-my-quiz/show-my-quiz';
+import {FriendProfile} from './component/friend-profile/friend-profile';
 
 export const routes: Routes = [
   {
@@ -54,6 +55,11 @@ export const routes: Routes = [
   {
     path: 'myQuiz/:id',
     component: ShowMyQuiz
+  },
+
+  {
+    path: 'friend/:id',
+    component: FriendProfile
   }
 
 ];

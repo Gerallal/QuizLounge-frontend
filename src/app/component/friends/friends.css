@@ -1,99 +1,109 @@
+/* Seitenhintergrund */
 body {
   margin: 0;
-  font-family: "Arial", sans-serif;
-  background: linear-gradient(135deg, #e3e8ff, #d3f1ff);
-  padding: 40px;
-}
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1d1f27, #2c2f3a);
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
 
-h1 {
-  text-align: center;
-  color: #4a3fc1;
-}
-
-.container {
   display: flex;
-  gap: 40px;
   justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 30px;
+  align-items: flex-start;
+  padding-top: 40px;
 }
 
-.box {
-  background-color: white;
-  padding: 25px;
+/* Haupt-Card */
+.add-form {
+  background: #222531;
+  padding: 30px;
+  width: 420px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-h2 {
-  color: #333;
-  margin-top: 0;
+/* Titel */
+.add-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-ul {
-  padding: 0;
-  list-style: none;
-}
-
-li {
-  margin-bottom: 15px;
+/* Formular */
+.add-form form {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f2f4ff;
-  padding: 10px 15px;
-  border-radius: 8px;
+  gap: 10px;
+  margin-bottom: 25px;
 }
 
-form {
-  display: inline;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border: 1px solid #ccc;
+.add-form input[type="text"] {
+  flex: 1;
+  padding: 12px;
   border-radius: 6px;
-  font-size: 16px;
+  border: none;
+  outline: none;
+  background: #2f3344;
+  color: #fff;
+  font-size: 14px;
 }
 
-button {
-  padding: 8px 12px;
-  background-color: #786fe0;
-  color: white;
+.add-form input::placeholder {
+  color: #aaa;
+}
+
+/* Button */
+.add-form button {
+  padding: 12px 18px;
   border: none;
   border-radius: 6px;
-  cursor: pointer;
+  background: #4c7dff;
+  color: #fff;
   font-size: 14px;
-  margin-left: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-button:hover {
-  background-color: #6358c5;
+.add-form button:hover {
+  background: #3a63d8;
 }
 
-.add-form {
-  margin-top: 40px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.back-link {
-  display: block;
-  text-align: center;
-  margin-top: 40px;
-  color: #4a3fc1;
-  text-decoration: none;
-}
-
-.back-link:hover {
-  text-decoration: underline;
-}
+/* ===== Angular Material Tabelle ===== */
 
 table {
   width: 100%;
+  background: transparent;
+  color: #fff;
+}
+
+/* Header */
+.mat-header-cell {
+  color: #ccc;
+  font-weight: 600;
+  border-bottom: 1px solid #3a3f55;
+}
+
+/* Zellen */
+.mat-cell {
+  color: #fff;
+  border-bottom: 1px solid #2f3344;
+}
+
+/* Zeilen Hover */
+.mat-row:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+/* Aktionen (Links) */
+.accept-text {
+  color: #7da2ff;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.accept-text:hover {
+  text-decoration: underline;
+}
+
+/* Ablehnen rot hervorheben */
+.accept-text:last-child {
+  color: #ff6b6b;
 }

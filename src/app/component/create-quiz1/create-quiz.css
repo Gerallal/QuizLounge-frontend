@@ -1,74 +1,118 @@
-body {
+/* Global sicherstellen */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
   margin: 0;
-  font-family: "Arial", sans-serif;
-  background: linear-gradient(135deg, #e3e8ff, #d3f1ff);
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* 🔑 verhindert weißen Rand */
+  background: linear-gradient(135deg, #1d1f27, #2c2f3a);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Wrapper */
+.page-wrapper {
+  min-height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  padding: 20px; /* 🔑 Abstand auf kleinen Screens */
 }
 
-.quiz-container {
-  background-color: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+/* Card */
+.card {
+  background: #222531;
+  padding: 30px;
   width: 100%;
-  max-width: 500px;
+  max-width: 420px; /* 🔑 statt fixer width */
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  color: #fff;
 }
 
-h1 {
+/* Titel */
+.card h1 {
+  margin: 0 0 25px 0;
   text-align: center;
-  margin-bottom: 30px;
-  color: #4a3fc1;
 }
 
-label {
+/* Formular */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
   display: block;
-  margin-top: 15px;
-  font-weight: bold;
-  color: #444;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #ccc;
 }
 
-input[type="text"],
-textarea,
-select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-}
-
-textarea {
-  resize: vertical;
-  height: 100px;
-}
-
-button[type="submit"] {
-  margin-top: 25px;
+/* Inputs */
+.form-group input,
+.form-group select,
+.form-group textarea {
   width: 100%;
   padding: 12px;
-  background-color: #786fe0;
-  color: white;
-  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  background: #2f3344;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #aaa;
+}
+
+/* Select Pfeil sauber */
+.form-group select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #aaa 50%),
+    linear-gradient(135deg, #aaa 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 12px) 50%;
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+/* Button */
+.primary-btn {
+  width: 100%;
+  padding: 12px;
   border: none;
   border-radius: 6px;
+  background: #4c7dff;
+  color: #fff;
+  font-size: 15px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s;
 }
 
-button[type="submit"]:hover {
-  background-color: #6358c5;
+.primary-btn:hover {
+  background: #3a63d8;
 }
 
+/* Zurück-Link */
 .back-link {
   display: block;
+  margin-top: 15px;
   text-align: center;
-  margin-top: 20px;
-  color: #4a3fc1;
+  color: #7da2ff;
   text-decoration: none;
+  font-size: 14px;
 }
 
 .back-link:hover {
