@@ -4,7 +4,6 @@ import {Register} from './component/register/register';
 import {Friends} from './component/friends/friends';
 import {Home} from './component/home/home';
 import { SolveQuiz } from './solve-quiz/solve-quiz';
-import { SolveQuizList } from './solve-quiz-list/solve-quiz-list';
 import { CreateQuiz } from './component/create-quiz/create-quiz';
 import {AddQuestion} from './component/add-question/add-question';
 import {Solve} from './component/solve/solve';
@@ -60,7 +59,7 @@ export const routes: Routes = [
   {
     path: 'solve/:quizId',
     component: Solve
-    },
+  },
 
   {
     path: 'create1',
