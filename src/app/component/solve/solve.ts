@@ -52,7 +52,7 @@ export class Solve implements OnInit{
     this.solveService.evaluateAttempt(this.quiz.attemptId, this.userAnswers)
       .subscribe(result => {
         console.log('Result:', result);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/ratingQuiz', this.quiz.quizId]);
       });
   }
 

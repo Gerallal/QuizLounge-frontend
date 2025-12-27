@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz Bewertung</title>
+</head>
+<body>
+
+  <h2>Du hast 7 von 10 richtig gelöst</h2>
+
+  <h3>Wie viele Sterne möchtest du geben? (1 bis 5)</h3>
+
+  <form (ngSubmit)="submitRating()">
+
+    <label>
+         <input type="radio" name="rating" [value]="1" [(ngModel)]="rating">
+         1 Stern
+    </label><br>
+
+    <label>
+        <input type="radio" name="rating" [value]="2" [(ngModel)]="rating">
+        2 Sterne
+    </label><br>
+
+    <label>
+        <input type="radio" name="rating" [value]="3" [(ngModel)]="rating">
+        3 Sterne
+    </label><br>
+
+    <label>
+        <input type="radio" name="rating" [value]="4" [(ngModel)]="rating">
+        4 Sterne
+    </label><br>
+
+    <label>
+        <input type="radio" name="rating" [value]="5" [(ngModel)]="rating">
+        5 Sterne
+    </label><br><br>
+
+    <button type="submit">Bewertung absenden</button>
+
+    </form>
+
+</body>
+</html>
