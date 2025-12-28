@@ -11,14 +11,12 @@ import {Router} from '@angular/router';
   styleUrl: './login.css',
 })
 
-export class Login{
+export class Login {
+
   public login: any[] = [];
+  public response: any;
 
-  public response:any;
-
-  constructor(private _loginService: LoginService, private router: Router) {
-
-  }
+  constructor(private _loginService: LoginService, private router: Router) {}
 
   formData = {username:"", password:""};
 

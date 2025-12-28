@@ -31,7 +31,7 @@ export class CreateQuiz2 implements OnInit {
 
   ngOnInit() {
     this.quizId = Number(this.route.snapshot.paramMap.get('id'));
-    }
+  }
 
   onSubmit(){
     const payload = {
@@ -56,6 +56,10 @@ export class CreateQuiz2 implements OnInit {
     })
   }
 
+  removeQuestion(questionIndex: number){
+    this.formData.splice(questionIndex, 1);
+  }
+
   addAnswer(questionIndex: number){
     this.formData[questionIndex].answers.push({ text: '',
       correct: false });
@@ -64,4 +68,5 @@ export class CreateQuiz2 implements OnInit {
   removeAnswer(questionIndex: number, answerIndex: number){
     this.formData[questionIndex].answers.splice(answerIndex, 1);
   }
+
 }

@@ -9,6 +9,7 @@ import {CreateQuiz1} from './component/create-quiz1/create-quiz';
 import {CreateQuiz2} from './component/create-quiz2/create-quiz2';
 import {ShowMyQuiz} from './component/show-my-quiz/show-my-quiz';
 import {FriendProfile} from './component/friend-profile/friend-profile';
+import {EditQuiz} from './component/edit-quiz/edit-quiz';
 
 export const routes: Routes = [
   {
@@ -60,6 +61,11 @@ export const routes: Routes = [
   {
     path: 'friend/:id',
     component: FriendProfile
+  },
+
+  {
+    path: 'myQuiz/edit/:id',
+    component: EditQuiz
   }
 
 ];

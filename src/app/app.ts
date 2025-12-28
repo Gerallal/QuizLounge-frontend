@@ -9,10 +9,22 @@ import { SolveQuizList } from './component/solve-quiz-list/solve-quiz-list';
 import { CreateQuiz1 } from './component/create-quiz1/create-quiz';
 import {CreateQuiz2} from './component/create-quiz2/create-quiz2';
 import {ShowMyQuiz} from './component/show-my-quiz/show-my-quiz';
+import {EditQuiz} from './component/edit-quiz/edit-quiz';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, Login, Register, Friends, SolveQuiz, SolveQuizList, CreateQuiz1, CreateQuiz2, ShowMyQuiz],
+  imports: [
+    RouterOutlet,
+    RouterLink,
+    Login,
+    Register,
+    Friends,
+    SolveQuiz,
+    SolveQuizList,
+    CreateQuiz1,
+    CreateQuiz2,
+    ShowMyQuiz,
+    EditQuiz],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

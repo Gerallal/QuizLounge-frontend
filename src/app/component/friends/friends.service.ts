@@ -10,10 +10,7 @@ export class FriendsService {
 
   private _url: string = "http://localhost:8080/quizlounge/api/friends/";
 
-
-  constructor(private httpClient: HttpClient) {
-
-  }
+  constructor(private httpClient: HttpClient) {}
 
   sendFriendRequest(friend: string): Observable<any> {
     return this.httpClient.get(this._url + "friend-request", {

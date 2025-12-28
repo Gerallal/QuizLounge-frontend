@@ -17,11 +17,10 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 
 export class Friends implements OnInit {
   public friend: string = "";
-  dataSource:MatTableDataSource<any> = new MatTableDataSource();
-  friendRequests:any[] = [];
+  dataSource: MatTableDataSource<any> = new MatTableDataSource();
+  friendRequests: any[] = [];
 
   displayedColumns: string[] = ['sender', 'decline', 'accept'];
-
 
   constructor(private friendsService: FriendsService) {
   }

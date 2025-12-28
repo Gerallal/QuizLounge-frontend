@@ -82,6 +82,8 @@ export class ShowMyQuiz implements OnInit {
 
   editMyQuiz() {
     if (!this.quiz) return;
+
+    this.router.navigate(['/myQuiz/edit/', this.quiz.id]);
   }
 
   deleteMyQuiz() {

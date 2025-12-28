@@ -18,7 +18,6 @@ export class FriendProfile implements OnInit{
   currentUser!: User;
   receivedQuizzes: Quiz[] = [];
 
-
   constructor(
     private route: ActivatedRoute,
     private loginService: LoginService,
@@ -28,6 +27,7 @@ export class FriendProfile implements OnInit{
 
   ngOnInit() {
     const friendId = Number(this.route.snapshot.paramMap.get('id'));
+    console.log('friendId', friendId);
 
     this.loginService.userLogin().subscribe(user => {
       this.currentUser = user;
@@ -39,7 +39,9 @@ export class FriendProfile implements OnInit{
 
     this.friendProfileService.getFriendQuizzes(friendId).subscribe(quizzes => {
       this.receivedQuizzes = quizzes;
+      console.log(this.receivedQuizzes);
     });
+
   }
 
   deleteFriend() {
@@ -53,7 +55,7 @@ export class FriendProfile implements OnInit{
       })
     }
 
-  private openTheirQuiz(quiz: Quiz) {
+  openTheirQuiz(quiz: Quiz) {
     console.log(quiz);
     console.log(quiz.id);
     this.router.navigate(['/myQuiz/', quiz.id]);

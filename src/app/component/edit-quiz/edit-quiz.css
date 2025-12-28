@@ -1,0 +1,328 @@
+/* =========================
+   Basis bleibt gleich
+========================= */
+
+.quiz-container {
+  margin-top: 40px;
+  background: #222531;
+  padding: 30px;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Titel */
+.quiz-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 26px;
+}
+
+/* =========================
+   Frageblock
+========================= */
+
+.question-block {
+  background: #2f3344;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+/* Label */
+.question-block label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Input */
+.question-block input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #3a3f55;
+  color: #fff;
+  outline: none;
+}
+
+.question-block input::placeholder {
+  color: #aaa;
+}
+
+/* =========================
+   Frage löschen
+========================= */
+
+.remove-question-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #ff5c5c;
+  border: none;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.remove-question-btn:hover {
+  background: #e04444;
+}
+
+/* =========================
+   Antwortbereich
+========================= */
+
+.answer-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.answer-option input[type="text"] {
+  flex: 1;
+}
+
+.answer-option input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Antwort löschen (X) */
+.answer-option button {
+  background: #ff5c5c;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.answer-option button:hover {
+  background: #e04444;
+}
+
+/* =========================
+   Buttons
+========================= */
+
+button[type="button"] {
+  background: #4c7dff;
+  border: none;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+button[type="button"]:hover {
+  background: #3a63d8;
+}
+
+/* =========================
+   Submit / Cancel
+========================= */
+
+form > button[type="submit"] {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #38c172;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+form > button[type="submit"]:hover {
+  background: #2fa866;
+}
+
+/* Abbrechen Button */
+form > button:last-of-type {
+  margin-top: 10px;
+  background: #6c757d;
+}
+
+form > button:last-of-type:hover {
+  background: #5a6268;
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 600px) {
+  .answer-option {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .answer-option button {
+    width: 100%;
+  }
+
+  .remove-question-btn {
+    position: static;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
+
+/* Basis */
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1d1f27, #2c2f3a);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: #fff;
+}
+
+/* Container */
+.quiz-container {
+  margin-top: 40px;
+  background: #222531;
+  padding: 30px;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Titel */
+.quiz-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Frageblock */
+.question-block {
+  background: #2f3344;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+/* Labels */
+.question-block label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Text Inputs */
+.question-block input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: none;
+  background: #3a3f55;
+  color: #fff;
+  outline: none;
+}
+
+.question-block input::placeholder {
+  color: #aaa;
+}
+
+/* Antwort-Option */
+.answer-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Antwort-Text */
+.answer-option input[type="text"] {
+  flex: 1;
+}
+
+/* Checkbox */
+.answer-option input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Entfernen-Button */
+.answer-option button {
+  background: #ff5c5c;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.answer-option button:hover {
+  background: #e04444;
+}
+
+/* Add Buttons */
+button[type="button"] {
+  background: #4c7dff;
+  border: none;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+button[type="button"]:hover {
+  background: #3a63d8;
+}
+
+/* Submit */
+button[type="submit"] {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #38c172;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background: #2fa866;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .answer-option {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .answer-option button {
+    width: 100%;
+  }
+}

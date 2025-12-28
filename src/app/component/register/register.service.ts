@@ -8,12 +8,12 @@ import {Observable} from 'rxjs';
 
 export class RegisterService {
 
-  private _url:string = "http://localhost:8080/quizlounge/api/register";
+  private _url: string = "http://localhost:8080/quizlounge/api/register";
 
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient) {}
 
-  register(username:string, password:string) : Observable<any> {
+  register(username:string, password:string): Observable<any> {
     return this.httpClient.post(this._url, {username, password}, {
       withCredentials: true
     });

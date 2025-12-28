@@ -10,8 +10,7 @@ import { Quiz } from '../../models/quiz-model';
 export class HomeService {
   private _url:string = "http://localhost:8080/quizlounge/api/";
 
-  constructor(private httpClient:HttpClient) {
-  }
+  constructor(private httpClient:HttpClient) {}
 
   getFriends(userId: number): Observable<User[]> {
     return this.httpClient.get<User[]>(this._url  + "home/" + userId + "/friends", {
@@ -21,12 +20,6 @@ export class HomeService {
 
   getMyQuiz(author_id: number): Observable<Quiz[]> {
     return this.httpClient.get<Quiz[]>(this._url + "quiz/home/" + author_id + "/create1", {
-      withCredentials: true
-    })
-  }
-
-  getTheirQuiz(userId: number): Observable<Quiz[]> {
-    return this.httpClient.get<Quiz[]>(this._url + "quiz/home/" + userId + "/create1", {
       withCredentials: true
     })
   }
