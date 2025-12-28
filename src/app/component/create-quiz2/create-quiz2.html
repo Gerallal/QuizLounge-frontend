@@ -17,7 +17,7 @@
 
       <label>Antwortmöglichkeiten:</label>
 
-      <div *ngFor=" of question.answers; let ai = index" class="answer-option">
+      <div *ngFor=" let ans of question.answers; let ai = index" class="answer-option">
         <input type="text"
                [(ngModel)]="question.answers[ai].text"
                name="question{{qi}}answer{{ai}}"

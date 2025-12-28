@@ -30,7 +30,7 @@ export class Home implements OnInit{
   ngOnInit() {
     this.loadCurrentUserAndFriends();
     this.loadMyQuizzes();
-    this.loadSendQuizzesOfMyFriends();
+    this.loadSentQuizzesOfMyFriends();
   }
 
   openMyQuiz(quiz: Quiz) {
@@ -90,12 +90,12 @@ export class Home implements OnInit{
     });
   }
 
-  private loadSendQuizzesOfMyFriends() {
+  private loadSentQuizzesOfMyFriends() {
     this.loginService.userLogin().subscribe({
       next: (user) => {
         this.currentUser = user;
 
-        this.homeService.getSendQuizzesOfMyFriends(user.id).subscribe({
+        this.homeService.getSentQuizzesOfMyFriends(user.id).subscribe({
           next: (response) => {
             this.receivedQuizzes = response;
           }

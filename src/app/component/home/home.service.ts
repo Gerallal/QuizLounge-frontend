@@ -24,7 +24,7 @@ export class HomeService {
     })
   }
 
-  getSendQuizzesOfMyFriends(userId: number) {
+  getSentQuizzesOfMyFriends(userId: number) {
     return this.httpClient.get<Quiz[]>(this._url + "home/" + "received/" + userId, {
       withCredentials: true
     })
