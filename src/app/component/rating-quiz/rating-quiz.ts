@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RatingQuizService } from './rating-quiz-service';
+import { Q } from '@angular/cdk/keycodes';
+import { IScore } from './model/score';
 
 @Component({
   selector: 'app-rating-quiz',
@@ -13,8 +15,24 @@ import { RatingQuizService } from './rating-quiz-service';
 })
 export class RatingQuiz {
   rating!: number;
+  score?: IScore;
+
 
   constructor(private route: ActivatedRoute, private ratingQuizService: RatingQuizService) {}
+
+  ngOnInit() {
+    const quizId = Number(this.route.snapshot.paramMap.get('quizId'));
+
+    this.ratingQuizService.getScore(quizId).subscribe({
+      next: (result) => {
+        this.score = {
+          numberOfRightAnswers: result.numberOfRightAnswers,
+          totalQuestions: result.totalQuestions,
+          quizId: quizId
+        };
+      }
+    });
+  }
 
   submitRating() {
     const quizId = Number(this.route.snapshot.paramMap.get('quizId'));

@@ -7,7 +7,8 @@
 </head>
 <body>
 
-  <h2>Du hast 7 von 10 richtig gelöst</h2>
+  <h2 *ngIf="score"> Du hast {{ score.numberOfRightAnswers }} von {{ score.totalQuestions }} richtig gelöst </h2>
+
 
   <h3>Wie viele Sterne möchtest du geben? (1 bis 5)</h3>
 

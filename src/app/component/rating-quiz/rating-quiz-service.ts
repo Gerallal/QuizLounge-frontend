@@ -13,4 +13,8 @@ export class RatingQuizService {
   saveRating(quizId: number, rating: number): Observable<any> {
     return this.http.post(`${this.baseUrl}/${quizId}/rating`, { rating: rating }, {withCredentials: true})
   }
+
+  getScore(quizId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${quizId}/results`, {withCredentials: true});
+  }
 }
