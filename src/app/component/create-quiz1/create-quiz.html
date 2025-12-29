@@ -1,41 +1,60 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Quiz erstellen</title>
-  <link rel="stylesheet" href="/css/create_quiz.css">
+<div class="page-wrapper">
+  <div class="card quiz-container">
+    <h1>Quiz erstellen</h1>
 
-</head>
-<body>
-<div class="quiz-container">
-  <h1>Quiz erstellen</h1>
-  <form (ngSubmit)="onSubmit()" #quizForm="ngForm" method="post">
-    <label for="title">Titel:</label>
-    <input type="text" id="title" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" required placeholder="Titel"/>
+    <form (ngSubmit)="onSubmit()" #quizForm="ngForm">
 
-    <label for="category">Kategorie:</label>
-    <select id="category" [(ngModel)]="category" [ngModelOptions]="{standalone: true}" required>
-      <option value="" disabled selected>Kategorie wählen</option>
-      <option value="Mathematik">Mathematik</option>
-      <option value="Deutsch">Deutsch</option>
-      <option value="Englisch">Englisch</option>
-      <option value="Biologie">Biologie</option>
-      <option value="Chemie">Chemie</option>
-      <option value="Physik">Physik</option>
-      <option value="Informatik">Informatik</option>
-      <option value="Geographie">Geographie</option>
-      <option value="Geschichte">Geschichte</option>
-      <option value="Politik">Politik</option>
-    </select>
+      <div class="form-group">
+        <label for="title">Titel</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          [(ngModel)]="title"
+          placeholder="Titel eingeben"
+          required>
+      </div>
 
-    <label for="description">Beschreibung:</label>
-    <textarea id="description" [(ngModel)]="description" [ngModelOptions]="{standalone: true}" placeholder="Beschreibung"></textarea>
+      <div class="form-group">
+        <label for="category">Kategorie</label>
+        <select
+          id="category"
+          name="category"
+          [(ngModel)]="selectedCategory"
+          required>
+          <option value="" disabled>Kategorie wählen</option>
+          <option value="Allgemein">Allgemein</option>
+          <option value="Mathematik">Mathematik</option>
+          <option value="Deutsch">Deutsch</option>
+          <option value="Englisch">Englisch</option>
+          <option value="Biologie">Biologie</option>
+          <option value="Chemie">Chemie</option>
+          <option value="Physik">Physik</option>
+          <option value="Informatik">Informatik</option>
+          <option value="Geographie">Geographie</option>
+          <option value="Geschichte">Geschichte</option>
+          <option value="Politik">Politik</option>
+        </select>
+      </div>
 
-    <button type="submit">Fortfahren</button>
-  </form>
+      <div class="form-group">
+        <label for="description">Beschreibung</label>
+        <textarea
+          id="description"
+          name="description"
+          [(ngModel)]="description"
+          placeholder="Kurze Beschreibung (optional)"></textarea>
+      </div>
 
-  <a>← zurück zur Übersicht</a>
+      <button
+        type="submit"
+        class="primary-btn"
+        [disabled]="!quizForm.valid">
+        Fortfahren
+      </button>
 
+    </form>
+
+    <a class="back-link" routerLink="/home">← zurück zur Übersicht</a>
+  </div>
 </div>
-</body>
-</html>

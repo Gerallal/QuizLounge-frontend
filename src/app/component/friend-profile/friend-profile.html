@@ -1,0 +1,26 @@
+<div class="friend-profile">
+
+  <div class="profile-main" *ngIf="friend">
+    <h1 class="friend-name">{{ friend.username }}</h1>
+    <button class="danger-btn" (click)="deleteFriend()">Entfreunden</button>
+  </div>
+
+  <div class="shared-quizzes">
+    <h3>Geteilte Quizze</h3>
+
+    <div class="quiz-list" *ngIf="receivedQuizzes.length > 0; else noQuizzes">
+      <div class="quiz-card" *ngFor="let quiz of receivedQuizzes">
+        <button (click)="openTheirQuiz(quiz)">
+          {{ quiz.title }}
+        </button>
+      </div>
+    </div>
+
+    <ng-template #noQuizzes>
+      <p>Keine Quizzes da</p>
+    </ng-template>
+  </div>
+
+  <!--<button (click)="console.log(friend)">Friend</button> -->
+
+</div>

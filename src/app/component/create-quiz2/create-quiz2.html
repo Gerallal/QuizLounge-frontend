@@ -1,0 +1,42 @@
+<div class="quiz-container">
+  <h1>Quiz erstellen</h1>
+
+  <form (ngSubmit)="onSubmit()" method="post">
+
+    <div *ngFor="let question of formData; let qi = index" class="question-block">
+
+      <label>Frage:</label>
+      <input type="text"
+             [(ngModel)]="question.questionText"
+             name="question{{qi}}"
+             placeholder="Frage eingeben">
+
+      <button type="button" class="remove-question-btn" (click)="removeQuestion(qi)">
+        Frage löschen
+      </button>
+
+      <label>Antwortmöglichkeiten:</label>
+
+      <div *ngFor=" let ans of question.answers; let ai = index" class="answer-option">
+        <input type="text"
+               [(ngModel)]="question.answers[ai].answerText"
+               name="question{{qi}}answer{{ai}}"
+               placeholder="Antwort eingeben">
+
+        <input type="checkbox"
+               [(ngModel)]="question.answers[ai].correct"
+               name="question{{qi}}correct{{ai}}">
+
+        <button type="button" (click)="removeAnswer(qi, ai)">X</button>
+      </div>
+
+      <button type="button" (click)="addAnswer(qi)">Antwort hinzufügen</button>
+      <br><br>
+
+    </div>
+
+    <button type="button" (click)="addQuestion()">Frage hinzufügen</button>
+    <button type="submit">Erstellen</button>
+
+  </form>
+</div>

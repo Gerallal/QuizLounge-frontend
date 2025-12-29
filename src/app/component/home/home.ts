@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {HomeService, User, Quiz} from './home.service';
+import {HomeService} from './home.service';
 import {LoginService} from '../login/login.service';
 import {NgForOf, NgIf} from '@angular/common';
 import {Router} from '@angular/router';
+import { User } from '../../models/user-model';
+import { Quiz } from '../../models/quiz-model';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +12,13 @@ import {Router} from '@angular/router';
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
+
 export class Home implements OnInit{
   friends: User[] = [];
   currentUser!: User;
-  //public listName:string = "My Quizzes";
   showFriends = true;
   myQuizzes: Quiz[] = [];
+  receivedQuizzes!: Quiz[];
 
 
   constructor(
@@ -27,9 +30,29 @@ export class Home implements OnInit{
   ngOnInit() {
     this.loadCurrentUserAndFriends();
     this.loadMyQuizzes();
+    this.loadSentQuizzesOfMyFriends();
   }
 
-  openQuiz(quiz: Quiz) {
+  openMyQuiz(quiz: Quiz) {
+    console.log(quiz);
+    console.log(quiz.id);
+    this.router.navigate(['/myQuiz/', quiz.id]);
+  }
+
+  openFriendPage(){
+    this.router.navigate(['/friends']);
+  }
+
+  openFriends(id: number) {
+    console.log(this.friends);
+    this.router.navigate(['/friend', id]);
+  }
+
+  openAddQuiz() {
+    this.router.navigate(['/create1']);
+  }
+
+  openTheirQuiz(quiz: Quiz) {
     console.log(quiz);
     console.log(quiz.id);
     this.router.navigate(['/myQuiz/', quiz.id]);
@@ -61,6 +84,20 @@ export class Home implements OnInit{
           next: (response) => {
             this.myQuizzes = response;
             //console.log('Freunde:', response);
+          }
+        });
+      }
+    });
+  }
+
+  private loadSentQuizzesOfMyFriends() {
+    this.loginService.userLogin().subscribe({
+      next: (user) => {
+        this.currentUser = user;
+
+        this.homeService.getSentQuizzesOfMyFriends(user.id).subscribe({
+          next: (response) => {
+            this.receivedQuizzes = response;
           }
         });
       }

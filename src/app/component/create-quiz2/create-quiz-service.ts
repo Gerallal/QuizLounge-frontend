@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {Question} from './create-quiz2';
 
 @Injectable({
   providedIn: 'root',
 })
+
 export class CreateQuizService2 {
 
   _url = "http://localhost:8080/quizlounge/api/quiz/create2";
