@@ -23,7 +23,7 @@ export class CreateQuiz2 implements OnInit {
   formData: Question[] = [
     {
       questionText: '',
-      questionType: 'single',
+      questionType: 'SingleAnswerQuestion',
       answers: [{ answerText: '', correct: false }]
     }
   ];
@@ -60,7 +60,7 @@ export class CreateQuiz2 implements OnInit {
   addQuestion(){
     this.formData.push({
       questionText: '',
-      questionType: 'single',
+      questionType: 'SingleAnswerQuestion',
       answers: [{ answerText: '', correct: false }]
     })
   }

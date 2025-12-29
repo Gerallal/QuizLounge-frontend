@@ -1,4 +1,4 @@
-<div class="quiz-page" *ngIf="quiz">
+<div class="quiz-page" *ngIf="quiz && attempt">
 
   <div class="quiz-header">
     <h1>{{ quiz.title }}</h1>
@@ -20,22 +20,29 @@
     </div>
   </div>
 
-  <div class="questions">
-    <div *ngFor="let q of quiz.questions; let qi = index">
-      <h3>Frage {{ qi + 1 }}: {{ q.questionText }}</h3>
+  <form (ngSubmit)="submitQuiz()" #quizForm="ngForm">
+    <div class="questions">
+      <div *ngFor="let q of attempt.questions; let qi = index">
+        <h3>Frage {{ qi + 1 }}: {{ q.questionText }}</h3>
 
-      <div class="answers">
-        <label *ngFor="let ans of q.answers">
-          <input type="radio"/>
-          <span class="answer-text">{{ans.answerText}}</span>
-        </label>
+        <div class="answers">
+          <label *ngFor="let ans of q.answers; let ai = index">
+            <input type="radio"
+                   [name]="'q' + qi"
+                   [value]="ai"
+                   [(ngModel)]="userAnswers[qi]"
+                   [ngModelOptions]="{standalone: true}"/>
+            <span class="answer-text">{{ans.answerText}}</span>
+          </label>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="solve-wrapper">
-    <button class="solve-btn">Lösen</button>
-  </div>
+    <div class="solve-wrapper">
+      <button type="submit" class="solve-btn">Lösen</button>
+    </div>
+  </form>
+
 
 </div>
 

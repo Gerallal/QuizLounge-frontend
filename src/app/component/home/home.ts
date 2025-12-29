@@ -36,7 +36,8 @@ export class Home implements OnInit{
   openMyQuiz(quiz: Quiz) {
     console.log(quiz);
     console.log(quiz.id);
-    this.router.navigate(['/myQuiz/', quiz.id]);
+    const quizId = quiz.id;
+    this.router.navigate(['/myQuiz/', quizId]);
   }
 
   openFriendPage(){

@@ -69,7 +69,8 @@ export class EditQuiz {
           description: quiz.description,
           category: quiz.category,
           author: quiz.author,
-          questions: quiz.questions
+          questions: quiz.questions,
+          attemptId: quiz.attemptId,
         };
         console.log(quiz);
 

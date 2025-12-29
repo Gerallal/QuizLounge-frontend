@@ -7,6 +7,7 @@ import {HomeService} from '../home/home.service';
 import {LoginService} from '../login/login.service';
 import { User } from '../../models/user-model';
 import { Quiz } from '../../models/quiz-model';
+import {Attempt} from '../../models/attempt-model';
 
 
 @Component({
@@ -19,7 +20,9 @@ import { Quiz } from '../../models/quiz-model';
 
 export class ShowMyQuiz implements OnInit {
 
-  quiz?: Quiz;
+  quiz!: Quiz;
+  attempt!: Attempt;
+  userAnswers: { [questionIndex: number]: number } = {};
   currentUser!: User;
   friends: User[] = [];
   selectedFriend?: User;
@@ -49,9 +52,10 @@ export class ShowMyQuiz implements OnInit {
   }
 
   private loadQuizById() {
-    const quiz_id = Number(this.route.snapshot.paramMap.get('id'));
+    const quizId = Number(this.route.snapshot.paramMap.get('id'));
+    console.log(quizId);
 
-    this.showMyQuizService.getMyQuiz(quiz_id).subscribe({
+    this.showMyQuizService.getMyQuiz(quizId).subscribe({
       next: (quiz: Quiz) => {
         this.quiz = quiz;
         console.log(quiz);
@@ -60,11 +64,24 @@ export class ShowMyQuiz implements OnInit {
   }
 
   ngOnInit() {
+    const quizId = Number(this.route.snapshot.paramMap.get('id'));
+    console.log(quizId);
+
     this.loginService.userLogin().subscribe({
       next: (user) => (this.currentUser = user)
     });
+
     this.loadCurrentUserAndFriends();
     this.loadQuizById();
+
+    this.showMyQuizService.startAttempt(quizId).subscribe(attempt => {
+      this.attempt = attempt;
+
+      this.showMyQuizService.getAttempt(attempt.attemptId).subscribe(a => {
+        //console.log("attempt "+this.quiz.userAnswers);
+        this.attempt = a;
+      });
+    });
   }
 
   shareMyQuiz() {
@@ -100,6 +117,15 @@ export class ShowMyQuiz implements OnInit {
         error: (err: any) => console.error(err)
       })
     }
+  }
+
+  submitQuiz() {
+    this.showMyQuizService.evaluateAttempt(this.attempt.attemptId, this.userAnswers)
+      .subscribe(result => {
+        console.log('Result:', result);
+        console.log(this.userAnswers);
+        this.router.navigate(['/ratingQuiz', this.quiz.id]);
+      });
   }
 
 }

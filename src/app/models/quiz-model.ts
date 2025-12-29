@@ -8,4 +8,5 @@ export interface Quiz {
   category: string;
   author: User;
   questions: Question[];
+  attemptId: number;
 }
