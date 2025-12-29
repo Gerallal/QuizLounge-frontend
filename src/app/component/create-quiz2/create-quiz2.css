@@ -1,76 +1,203 @@
+/* =========================
+   RESET & BASIS
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
 body {
   margin: 0;
-  font-family: "Arial", sans-serif;
-  background: linear-gradient(135deg, #e3e8ff, #d3f1ff);
+  padding: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  overflow-x: hidden;
+}
+
+/* =========================
+   BACKGROUND (WIE HOME)
+========================= */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8ecff, #d9f5ff);
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  align-items: flex-start;
+  padding: 30px 20px;
 }
 
+/* =========================
+   MAIN CARD (HOME LOOK)
+========================= */
 .quiz-container {
-  background-color: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 500px;
+  max-width: 900px; /* exakt wie Home */
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 30px;
+/* =========================
+   HEADLINE
+========================= */
+.quiz-container h1 {
+  margin: 0 0 36px;
+  font-size: 30px;
+  font-weight: 700;
   color: #4a3fc1;
 }
 
+/* =========================
+   QUESTION BLOCK (SECTION CARD)
+========================= */
+.question-block {
+  background: #f8f9ff;
+  border: 1px solid #e2e6ff;
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+/* =========================
+   LABELS
+========================= */
 label {
   display: block;
-  margin-top: 15px;
-  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
   color: #444;
 }
 
-input[type="text"],
-textarea,
-select {
+/* =========================
+   INPUTS
+========================= */
+input[type="text"] {
   width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
+  padding: 14px 16px;
+  font-size: 15px;
+  border-radius: 12px;
+  border: 1px solid #d0d4e4;
+  background: #ffffff;
+  margin-bottom: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-textarea {
-  resize: vertical;
-  height: 100px;
+input[type="text"]:focus {
+  outline: none;
+  border-color: #786fe0;
+  box-shadow: 0 0 0 3px rgba(120, 111, 224, 0.25);
 }
 
-button[type="submit"] {
-  margin-top: 25px;
-  width: 100%;
-  padding: 12px;
-  background-color: #786fe0;
-  color: white;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
+/* =========================
+   ANSWERS
+========================= */
+.answer-option {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* Checkbox */
+.answer-option input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #786fe0;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
-  background-color: #6358c5;
+/* Remove answer */
+.answer-option button {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: none;
+  background: #ff5b5b;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.back-link {
-  display: block;
-  text-align: center;
-  margin-top: 20px;
+.answer-option button:hover {
+  background: #e04848;
+  transform: scale(1.05);
+}
+
+/* =========================
+   QUESTION ACTIONS
+========================= */
+.question-block > button {
+  margin-top: 14px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: none;
+  background: #eef0ff;
   color: #4a3fc1;
-  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.back-link:hover {
+.question-block > button:hover {
+  background: #e2e6ff;
+  transform: translateY(-1px);
+}
+
+/* Remove question */
+.remove-question-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: #ff5b5b;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.remove-question-btn:hover {
   text-decoration: underline;
 }
+
+/* =========================
+   FORM ACTIONS (BOTTOM)
+========================= */
+form > button {
+  width: 100%;
+  padding: 16px;
+  margin-top: 18px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Add question */
+form > button[type="button"] {
+  background: #f1f3ff;
+  color: #4a3fc1;
+}
+
+form > button[type="button"]:hover {
+  background: #e3e6ff;
+}
+
+/* Submit */
+form > button[type="submit"] {
+  background: linear-gradient(135deg, #786fe0, #5c54c9);
+  color: #ffffff;
+}
+
+form > button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(92, 84, 201, 0.4);
+}
+

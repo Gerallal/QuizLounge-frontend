@@ -1,116 +1,147 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #b791df, #a3c5ff);
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.register-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 20px;
-}
-
-.register-box {
-  background: white;
-  padding: 40px 30px;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 400px;
+/* =========================
+   RESET & BASIS
+========================= */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  overflow-x: hidden;
+}
+
+/* =========================
+   BACKGROUND (WIE HOME)
+========================= */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8ecff, #d9f5ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* =========================
+   WRAPPER
+========================= */
+.register-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =========================
+   REGISTER CARD
+========================= */
+.register-box {
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   HEADLINE
+========================= */
 .register-box h2 {
+  margin: 0 0 32px;
   text-align: center;
-  color: #333;
-  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #4a3fc1;
 }
 
-/* Eingabefelder */
+/* =========================
+   INPUT BOXES
+========================= */
 .input-box {
+  margin-bottom: 22px;
   position: relative;
-  margin-bottom: 30px;
 }
 
+/* Inputs */
 .input-box input {
   width: 100%;
-  padding: 10px 0;
-  border: none;
-  border-bottom: 2px solid #ccc;
-  font-size: 16px;
-  background: transparent;
+  padding: 14px 16px;
+  font-size: 15px;
+  border-radius: 14px;
+  border: 1px solid #d0d4e4;
+  background: #f9faff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus */
+.input-box input:focus {
   outline: none;
-  color: #333;
+  border-color: #786fe0;
+  box-shadow: 0 0 0 3px rgba(120, 111, 224, 0.25);
+  background: #ffffff;
 }
 
-.input-box label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px 0;
-  color: #999;
+/* Alte Linien/Animationen entfernen */
+.input-box span {
+  display: none;
+}
+
+/* =========================
+   STATUS TEXT (OPTIONAL)
+========================= */
+/* Falls du später einen Status-Text einfügst */
+.status-text {
+  margin-bottom: 18px;
   font-size: 14px;
-  pointer-events: none;
-  transition: 0.3s ease;
+  text-align: center;
+  color: #d23b3b; /* Fehler */
 }
 
-.input-box span::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  width: 0%;
-  background: linear-gradient(135deg, #b791df, #a3c5ff);
-  transition: 0.4s;
+/* Erfolg */
+.status-text.success {
+  color: #2e9d5f;
 }
 
-.input-box input:focus ~ label,
-.input-box input:valid ~ label {
-  top: -20px;
-  left: 0;
-  font-size: 12px;
-  color: #aa31ff;
-}
-
-.input-box input:focus ~ span::before,
-.input-box input:valid ~ span::before {
-  width: 100%;
-}
-
-/* Button */
+/* =========================
+   REGISTER BUTTON
+========================= */
 .register-button {
   width: 100%;
-  padding: 12px;
-  background: #b791df;
-  border: none;
-  border-radius: 30px;
-  color: white;
+  padding: 16px;
+  margin-top: 8px;
   font-size: 16px;
+  font-weight: 600;
+  border-radius: 16px;
+  border: none;
+  background: linear-gradient(135deg, #786fe0, #5c54c9);
+  color: #ffffff;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
 .register-button:hover {
-  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(92, 84, 201, 0.4);
 }
 
-/* Link zur Anmeldung */
+/* =========================
+   LOGIN LINK
+========================= */
 .login-link {
-  margin-top: 20px;
+  margin-top: 22px;
   text-align: center;
-  font-size: 14px;
 }
 
 .login-link a {
-  color: #aa31ff;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4a3fc1;
   text-decoration: none;
 }
 

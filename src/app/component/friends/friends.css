@@ -1,99 +1,159 @@
+/* =========================
+   RESET & BASIS
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
 body {
   margin: 0;
-  font-family: "Arial", sans-serif;
-  background: linear-gradient(135deg, #e3e8ff, #d3f1ff);
-  padding: 40px;
-}
-
-h1 {
-  text-align: center;
-  color: #4a3fc1;
-}
-
-.container {
-  display: flex;
-  gap: 40px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
-
-.box {
-  background-color: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-}
-
-h2 {
-  color: #333;
-  margin-top: 0;
-}
-
-ul {
   padding: 0;
-  list-style: none;
+  overflow-x: hidden;
+  font-family: "Inter", "Arial", sans-serif;
 }
 
-li {
-  margin-bottom: 15px;
+/* =========================
+   BACKGROUND
+========================= */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8ecff, #d9f5ff);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f2f4ff;
-  padding: 10px 15px;
-  border-radius: 8px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
 }
 
-form {
-  display: inline;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-}
-
-button {
-  padding: 8px 12px;
-  background-color: #786fe0;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  margin-left: 5px;
-}
-
-button:hover {
-  background-color: #6358c5;
-}
-
+/* =========================
+   CARD / FORM CONTAINER
+========================= */
 .add-form {
-  margin-top: 40px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 36px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
 }
 
-.back-link {
-  display: block;
+/* =========================
+   HEADLINE
+========================= */
+.add-form h2 {
   text-align: center;
-  margin-top: 40px;
+  margin-bottom: 28px;
+  font-size: 24px;
+  font-weight: 700;
   color: #4a3fc1;
-  text-decoration: none;
 }
 
-.back-link:hover {
+/* =========================
+   FORM
+========================= */
+.add-form form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+/* Input */
+.add-form input[type="text"] {
+  flex: 1;
+  padding: 12px 14px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid #d0d4e4;
+  background-color: #f9faff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-form input[type="text"]:focus {
+  outline: none;
+  border-color: #786fe0;
+  box-shadow: 0 0 0 3px rgba(120, 111, 224, 0.25);
+  background-color: #fff;
+}
+
+/* Submit button */
+.add-form button[type="submit"] {
+  padding: 12px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #786fe0, #5c54c9);
+  color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-form button[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(92, 84, 201, 0.35);
+}
+
+/* =========================
+   ANGULAR MATERIAL TABLE
+========================= */
+table.mat-table {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e2e6ff;
+  background: #fff;
+}
+
+/* Header */
+.mat-header-row {
+  background: #f1f3ff;
+}
+
+.mat-header-cell {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+  padding: 14px;
+}
+
+/* Cells */
+.mat-cell {
+  font-size: 14px;
+  padding: 14px;
+  color: #444;
+}
+
+/* Row hover */
+.mat-row:hover {
+  background: #f8f9ff;
+}
+
+/* =========================
+   ACTION LINKS
+========================= */
+.accept-text {
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* Accept */
+.accept-text:first-child {
+  color: #4a3fc1;
+}
+
+.accept-text:first-child:hover {
   text-decoration: underline;
 }
 
-table {
-  width: 100%;
+/* Decline */
+td:last-child .accept-text {
+  color: #d23b3b;
+}
+
+td:last-child .accept-text:hover {
+  text-decoration: underline;
 }

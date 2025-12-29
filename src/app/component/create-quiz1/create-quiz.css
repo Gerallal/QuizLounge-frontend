@@ -1,72 +1,142 @@
+/* =========================
+   RESET
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
 body {
   margin: 0;
-  font-family: "Arial", sans-serif;
-  background: linear-gradient(135deg, #e3e8ff, #d3f1ff);
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Inter", "Arial", sans-serif;
+}
+
+
+/* =========================
+   WRAPPER – NICHT ZENTRIERT
+========================= */
+.page-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8ecff, #d9f5ff);
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  align-items: flex-start;
+  padding: 30px 20px;
 }
 
-.quiz-container {
-  background-color: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+/* =========================
+   CARD – HOME STYLE
+========================= */
+.card.quiz-container {
   width: 100%;
-  max-width: 500px;
+  max-width: 900px; /* wie Home */
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
 }
 
+/* =========================
+   HEADLINE – HOME FEEL
+========================= */
 h1 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  font-size: 30px;
+  font-weight: 700;
   color: #4a3fc1;
+}
+
+h2 {
+  margin: 36px 0 18px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* =========================
+   FORM LAYOUT
+========================= */
+.form-group {
+  margin-bottom: 26px;
 }
 
 label {
   display: block;
-  margin-top: 15px;
-  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
   color: #444;
 }
 
+/* =========================
+   INPUTS
+========================= */
 input[type="text"],
-textarea,
-select {
+select,
+textarea {
   width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
+  padding: 14px 16px;
+  font-size: 15px;
+  border-radius: 12px;
+  border: 1px solid #d0d4e4;
+  background: #f9faff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 textarea {
+  min-height: 130px;
   resize: vertical;
-  height: 100px;
 }
 
-button[type="submit"] {
-  margin-top: 25px;
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #786fe0;
+  box-shadow: 0 0 0 3px rgba(120, 111, 224, 0.25);
+  background: #ffffff;
+}
+
+/* =========================
+   PRIMARY ACTION (HOME-LIKE)
+========================= */
+.primary-btn {
+  margin-top: 32px;
+  padding: 16px;
   width: 100%;
-  padding: 12px;
-  background-color: #786fe0;
-  color: white;
-  font-size: 16px;
+  border-radius: 16px;
   border: none;
-  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #786fe0, #5c54c9);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
-button[type="submit"]:hover {
-  background-color: #6358c5;
+.primary-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(92, 84, 201, 0.4);
 }
 
+.primary-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================
+   BACK LINK – WIE HOME
+========================= */
 .back-link {
-  display: block;
-  text-align: center;
-  margin-top: 20px;
+  display: inline-block;
+  margin-top: 32px;
+  font-size: 14px;
+  font-weight: 600;
   color: #4a3fc1;
   text-decoration: none;
 }
