@@ -1,9 +1,13 @@
-<button (click)="showResults()" *ngIf="!showStats">
+<button (click)="showQuizResults()" *ngIf="!showQuizStats && !showMyStats">
   Statistik meiner Quizze anzeigen
 </button>
 
-<div *ngIf="showStats">
-  <h2>Quiz-Ergebnisse</h2>
+<button (click)="showMyResults()" *ngIf="!showQuizStats && !showMyStats">
+  Meine Statistiken anzeigen
+</button>
+
+<div *ngIf="showQuizStats">
+  <h2>Statistiken meiner erstellten Quizze</h2>
 
   <div *ngFor="let quiz of groupedQuizzes">
     <div
@@ -11,5 +15,15 @@
       style="width:100%; height:450px; margin: 40px 0;">
     </div>
   </div>
+</div>
 
+<div *ngIf="showMyStats">
+  <h2>Meine Quiz-Statistiken</h2>
+
+  <div *ngFor="let quiz of groupedQuizzes">
+    <div
+      [id]="'chart-' + quiz.quizId"
+      style="width:100%; height:450px; margin: 40px 0;">
+    </div>
+  </div>
 </div>

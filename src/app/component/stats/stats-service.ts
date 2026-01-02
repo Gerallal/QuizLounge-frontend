@@ -12,7 +12,10 @@ export class StatsService {
   constructor(private http: HttpClient) {}
 
   getStatsOfAQuiz(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/mystats`, {withCredentials: true})
+    return this.http.get(`${this.baseUrl}/statsOfMyQuizzes`, {withCredentials: true})
+  }
+  getMyStats(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/myStats`, {withCredentials: true})
   }
   
 }

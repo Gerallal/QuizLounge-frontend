@@ -10,67 +10,82 @@ import { StatsService } from './stats-service';
   templateUrl: './stats.html',
 })
 export class Stats implements OnInit {
-
-  showStats = false;
-  statsData: any[] = [];
-  groupedQuizzes: any[] = [];
+  showQuizStats = false;
+  showMyStats = false;
+  statsDataOFMyQuizzes: any[] = []; // Stats meiner erstellten Quizze
+  myStatsData: any[] = [];          // Meine eigenen Stats
+  groupedQuizzes: any[] = [];       // Daten für die Charts
 
   constructor(private statsService: StatsService) {}
 
   ngOnInit() {
+    // Stats meiner erstellten Quizze
     this.statsService.getStatsOfAQuiz().subscribe(data => {
-      this.statsData = data;
+      this.statsDataOFMyQuizzes = data;
+    });
+
+    // Meine eigenen Stats
+    this.statsService.getMyStats().subscribe(data => {
+      this.myStatsData = data;
     });
   }
 
-  showResults() {
-  this.showStats = true;
-  const grouped = this.groupByQuiz(this.statsData);
-  this.groupedQuizzes = Object.values(grouped);
 
-  setTimeout(() => this.renderCharts());
-}
+  showQuizResults() {
+    this.showQuizStats = true;
+    this.showMyStats = false;
 
+    const grouped = this.groupByQuiz(this.statsDataOFMyQuizzes);
+    this.groupedQuizzes = Object.values(grouped);
+
+    setTimeout(() => this.renderCharts());
+  }
+
+  showMyResults() {
+    this.showMyStats = true;
+    this.showQuizStats = false;
+
+    const grouped = this.groupByQuiz(this.myStatsData);
+    this.groupedQuizzes = Object.values(grouped);
+
+    setTimeout(() => this.renderCharts());
+  }
+
+  hideStats() {
+    this.showQuizStats = false;
+    this.showMyStats = false;
+    this.groupedQuizzes = [];
+  }
 
   private renderCharts() {
-  // statsData → gruppieren
-  const quizzes = this.groupByQuiz(this.statsData);
+    this.groupedQuizzes.forEach((quiz: any) => {
 
-  // in Array umwandeln (wichtig!)
-  const quizList = Object.values(quizzes);
+      const traces = this.createUserTraces(quiz.attempts) as Plotly.Data[];
 
-  quizList.forEach((quiz: any) => {
-
-    const traces = this.createUserTraces(quiz.attempts) as Plotly.Data[];
-
-    Plotly.newPlot(
-      `chart-${quiz.quizId}`,
-      traces,
-      {
-        title: {
-          text: quiz.quizTitle
-        },
-        xaxis: {
+      Plotly.newPlot(
+        `chart-${quiz.quizId}`,
+        traces,
+        {
           title: {
-            text: 'Datum und Uhrzeit'
+            text: quiz.quizTitle
           },
-          type: 'date'
-        },
-        yaxis: {
-          title: {
-            text: 'Richtige Antworten'
+          xaxis: {
+            title: { text: 'Datum und Uhrzeit' },
+            type: 'date'
           },
-          range: [0, quiz.attempts[0].totalQuestions],
-          rangemode: 'tozero',
-          tickmode: 'linear',
-          tick0: 0,
-          dtick: 1
-        },
-        hovermode: 'x unified'
-      }
-    );
-  });
-}
+          yaxis: {
+            title: { text: 'Richtige Antworten' },
+            range: [0, quiz.attempts[0].totalQuestions],
+            rangemode: 'tozero',
+            tickmode: 'linear',
+            tick0: 0,
+            dtick: 1
+          },
+          hovermode: 'x unified'
+        }
+      );
+    });
+  }
 
 
   private createUserTraces(attempts: any[]) {
