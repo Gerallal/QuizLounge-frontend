@@ -11,8 +11,8 @@ export class StatsService {
 
   constructor(private http: HttpClient) {}
 
-  getStatsOfAQuiz(quizId: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${quizId}`, {withCredentials: true})
+  getStatsOfAQuiz(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/mystats`, {withCredentials: true})
   }
   
 }

@@ -1,13 +1,15 @@
-
 <button (click)="showResults()" *ngIf="!showStats">
-  Ergebnisse anzeigen
+  Statistik meiner Quizze anzeigen
 </button>
 
 <div *ngIf="showStats">
-  <h2>In den Quizzen hast du so abgeschnitten</h2>
+  <h2>Quiz-Ergebnisse</h2>
 
-  <div
-    id="chart"
-    style="width:100%; height:400px; margin-top: 20px;">
+  <div *ngFor="let quiz of groupedQuizzes">
+    <div
+      [id]="'chart-' + quiz.quizId"
+      style="width:100%; height:450px; margin: 40px 0;">
+    </div>
   </div>
+
 </div>
