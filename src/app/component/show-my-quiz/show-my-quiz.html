@@ -3,10 +3,8 @@
   <div class="quiz-header">
     <h1>{{ quiz.title }}</h1>
 
-    <div class="actions" *ngIf="quiz && currentUser && quiz.author.id === currentUser.id">
-      <button (click)="shareMyQuiz()" [disabled]="!selectedFriend">
-        Teilen
-      </button>
+    <div class="actions"
+         *ngIf="quiz && currentUser && quiz.author.id === currentUser.id">
 
       <select [(ngModel)]="selectedFriend">
         <option [ngValue]="undefined">– Freund auswählen –</option>
@@ -15,36 +13,57 @@
         </option>
       </select>
 
+      <button (click)="shareMyQuiz()" [disabled]="!selectedFriend">
+        Teilen
+      </button>
+
       <button (click)="editMyQuiz()">Bearbeiten</button>
       <button (click)="deleteMyQuiz()">Löschen</button>
     </div>
   </div>
 
   <form (ngSubmit)="submitQuiz()" #quizForm="ngForm">
+
     <div class="questions">
-      <div *ngFor="let q of attempt.questions; let qi = index">
+      <div *ngFor="let q of attempt.questions; let qi = index"
+           class="question-block">
+
         <h3>Frage {{ qi + 1 }}: {{ q.questionText }}</h3>
 
-        <div class="answers">
+        <div *ngIf="q.questionType === 'SingleAnswerQuestion'">
           <label *ngFor="let ans of q.answers; let ai = index">
             <input type="radio"
-                   [name]="'q' + qi"
-                   [value]="ai"
-                   [(ngModel)]="userAnswers[qi]"
-                   [ngModelOptions]="{standalone: true}"/>
-            <span class="answer-text">{{ans.answerText}}</span>
+                   [name]="'q' + q.questionId"
+                   [value]="ans.answerText"
+                   [(ngModel)]="userAnswers[q.questionId!]"
+                   [ngModelOptions]="{standalone: true}">
+            {{ ans.answerText }}
           </label>
         </div>
+
+        <div *ngIf="q.questionType === 'MultipleAnswerQuestion'">
+          <label *ngFor="let ans of q.answers">
+            <input type="checkbox"
+                   (change)="toggleMultiAnswer(q.questionId!, ans.answerText, $event)">
+            {{ ans.answerText }}
+          </label>
+        </div>
+
+        <div *ngIf="q.questionType === 'UserInputQuestion'">
+          <input type="text"
+                 [(ngModel)]="userAnswers[q.questionId!]"
+                 [ngModelOptions]="{standalone: true}"
+                 placeholder="Antwort eingeben">
+        </div>
+
       </div>
     </div>
 
     <div class="solve-wrapper">
-      <button type="submit" class="solve-btn">Lösen</button>
+      <button type="submit" class="solve-btn">
+        Lösen
+      </button>
     </div>
+
   </form>
-
-
 </div>
-
-
-

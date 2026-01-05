@@ -1,47 +1,74 @@
 <div class="quiz-container">
   <h1>Quiz "{{ quiz?.title }}" bearbeiten</h1>
 
-  <form method="post" (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()">
 
-    <div *ngFor="let question of formData; let qi = index" class="question-block">
+    <div *ngFor="let question of formData; let qi = index"
+         class="question-block">
+
       <label>Frage:</label>
       <input type="text"
              [(ngModel)]="question.questionText"
              name="question{{qi}}"
-             placeholder="{{question.questionText}}">
+             placeholder="Frage eingeben">
 
-      <button type="button" class="remove-question-btn" (click)="removeQuestion(qi)">
+      <label>Fragetyp:</label>
+      <select
+        [(ngModel)]="question.questionType"
+        name="question{{qi}}type"
+        (change)="onQuestionTypeChange(qi)">
+
+        <option value="SingleAnswerQuestion">Single Answer</option>
+        <option value="MultipleAnswerQuestion">Multiple Answer</option>
+        <option value="UserInputQuestion">User Input</option>
+      </select>
+
+      <button type="button"
+              class="remove-question-btn"
+              (click)="removeQuestion(qi)">
         Frage löschen
       </button>
 
       <label>Antwortmöglichkeiten:</label>
-      <div *ngFor="let ans of question.answers; let ai = index" class="answer-option">
+
+      <div *ngFor="let ans of question.answers; let ai = index"
+           class="answer-option">
+
         <input type="text"
-               [(ngModel)]="question.answers[ai].answerText"
+               [(ngModel)]="ans.answerText"
                name="question{{qi}}answer{{ai}}"
-               placeholder="{{question.answers[ai].answerText}}">
+               placeholder="Antwort eingeben">
 
-        <input type="checkbox"
-               [(ngModel)]="question.answers[ai].correct"
-               name="question{{qi}}correct{{ai}}" />
+        <input
+          *ngIf="question.questionType !== 'UserInputQuestion'"
+          type="checkbox"
+          [(ngModel)]="ans.correct"
+          name="question{{qi}}correct{{ai}}"
+          (change)="setSingleCorrect(qi, ai)">
 
-        <button type="button" (click)="removeAnswer(qi, ai)">X</button>
+        <button
+          *ngIf="question.answers.length > 1"
+          type="button"
+          (click)="removeAnswer(qi, ai)">
+          X
+        </button>
       </div>
 
-      <button type="button" (click)="addAnswer(qi)">Antwort hinzufügen</button>
+      <button
+        *ngIf="question.questionType !== 'UserInputQuestion'"
+        type="button"
+        (click)="addAnswer(qi)">
+        Antwort hinzufügen
+      </button>
 
       <br><br>
     </div>
 
     <button type="button" (click)="addQuestion()">Frage hinzufügen</button>
-    <button type="submit" (click)="saveEdits()">Änderungen speichern</button>
+    <button type="submit">Änderungen speichern</button>
     <button type="button" (click)="cancel()">Abbrechen</button>
 
   </form>
 
-  <a>← zurück zur Übersicht</a>
+  <a (click)="cancel()">← zurück zur Übersicht</a>
 </div>
-
-
-
-<p>yolo</p>
