@@ -50,6 +50,7 @@ export class FriendProfile implements OnInit{
       },
       error: (err: any) => console.error(err)
     })
+    this.router.navigate(['/home']);
   }
 
   openTheirQuiz(quiz: Quiz) {

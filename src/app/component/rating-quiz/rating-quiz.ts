@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RatingQuizService } from './rating-quiz-service';
@@ -18,7 +18,7 @@ export class RatingQuiz {
   score?: IScore;
 
 
-  constructor(private route: ActivatedRoute, private ratingQuizService: RatingQuizService) {}
+  constructor(private router: Router, private route: ActivatedRoute, private ratingQuizService: RatingQuizService) {}
 
   ngOnInit() {
     const quizId = Number(this.route.snapshot.paramMap.get('quizId'));
@@ -43,5 +43,6 @@ export class RatingQuiz {
     this.ratingQuizService.saveRating(quizId, this.rating).subscribe(result => {
       console.log('Result:', result);
     })
+    this.router.navigate(['/home']);
   }
 }
