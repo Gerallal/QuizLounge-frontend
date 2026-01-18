@@ -1,0 +1,47 @@
+<div class="quiz-page">
+
+  <h1>Quizze</h1>
+
+  <!-- Suche -->
+  <input
+    type="text"
+    placeholder="Quiz suchen..."
+    [(ngModel)]="searchTerm"
+    (input)="applyFilters()"
+    class="search-input"
+  />
+
+  <!-- Kategorie -->
+  <select
+    [(ngModel)]="selectedCategory"
+    (change)="applyFilters()"
+    class="category-select"
+  >
+    <option value="">Alle Kategorien</option>
+    <option *ngFor="let c of categories" [value]="c">
+      {{ c }}
+    </option>
+  </select>
+
+  <!-- Quiz Liste -->
+  <div class="quiz-list">
+
+    <div
+      class="quiz-card"
+      *ngFor="let quiz of filteredQuizzes"
+    >
+      <h3>{{ quiz.title }}</h3>
+
+      <!-- Kategorie NUR anzeigen, wenn NICHT gefiltert -->
+      <p *ngIf="!selectedCategory">
+        Kategorie: {{ quiz.category }}
+      </p>
+    </div>
+
+    <p *ngIf="filteredQuizzes.length === 0">
+      Keine Quizze gefunden
+    </p>
+
+  </div>
+
+</div>

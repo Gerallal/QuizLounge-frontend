@@ -13,6 +13,8 @@ import {CreateQuiz2} from './component/create-quiz2/create-quiz2';
 import {ShowMyQuiz} from './component/show-my-quiz/show-my-quiz';
 import {FriendProfile} from './component/friend-profile/friend-profile';
 import {EditQuiz} from './component/edit-quiz/edit-quiz';
+import {AllFriends} from './component/all-friends/all-friends';
+import {AllQuizzes} from './component/all-quizzes/all-quizzes';
 
 export const routes: Routes = [
   {
@@ -85,6 +87,16 @@ export const routes: Routes = [
   {
     path: 'myQuiz/edit/:id',
     component: EditQuiz
+  },
+
+  {
+    path: 'allFriends',
+    component: AllFriends
+  },
+
+  {
+    path: 'allQuizzes',
+    component: AllQuizzes
   }
 
 ];

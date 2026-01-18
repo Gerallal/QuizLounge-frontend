@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import {Rating} from '../../models/rating-model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,5 +18,11 @@ export class StatsService {
   getMyStats(): Observable<any> {
     return this.http.get(`${this.baseUrl}/myStats`, {withCredentials: true})
   }
-  
+
+  getRatingsOfMyQuizzes(): Observable<Rating[]> {
+    return this.http.get<Rating[]>(`${this.baseUrl}/stats`, {
+      withCredentials: true
+    });
+  }
+
 }

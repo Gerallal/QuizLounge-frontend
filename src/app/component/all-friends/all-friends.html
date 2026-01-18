@@ -1,0 +1,27 @@
+<div class="friends-page">
+  <h1>Meine Freunde</h1>
+
+  <!-- Suche -->
+  <input
+    type="text"
+    placeholder="Freunde suchen..."
+    [(ngModel)]="searchTerm"
+    (input)="onSearchChange()"
+    class="search-input"
+  />
+
+  <!-- Liste -->
+  <div class="friends-list">
+    <div
+      class="friend"
+      *ngFor="let f of filteredFriends"
+      (click)="openFriend(f.id)"
+    >
+      {{ f.username }}
+    </div>
+
+    <p *ngIf="filteredFriends.length === 0">
+      Keine Freunde gefunden
+    </p>
+  </div>
+</div>

@@ -1,32 +1,56 @@
 <body>
 <div id="main">
+
   <h1>Quiz-Homepage</h1>
 
-  <!-- Freunde-Bereich -->
   <div class="friends-section" *ngIf="showFriends">
-    <h2>Meine Freunde</h2>
+
+    <!-- MEINE FREUNDE -->
+    <h2 class="clickable" (click)="seeAllFriends()">Meine Freunde</h2>
+
     <div class="friends-list">
       <div class="friend" *ngFor="let f of friends">
         <button (click)="openFriends(f.id)">
           {{ f.username }}
         </button>
       </div>
+
       <div class="add-stuff" (click)="openFriendPage()">
         +
+        <span class="badge" *ngIf="friendRequestCount > 0">
+          {{ friendRequestCount }}
+        </span>
       </div>
     </div>
-    <h2>Meine Quizze</h2>
+
+    <!-- MEINE QUIZZE -->
+    <h2 class="clickable" (click)="seeAllMyQuizzes()">Meine Quizze</h2>
+
     <div class="friends-list">
       <div class="friend" *ngFor="let q of myQuizzes">
+
         <button (click)="openMyQuiz(q)">
           {{ q.title }}
         </button>
+
+        <div class="rating" *ngIf="getRatingForQuiz(q.id) !== null">
+          ★ {{ getRatingForQuiz(q.id) | number:'1.1-1' }} / 5
+        </div>
+
+        <div class="rating no-rating" *ngIf="getRatingForQuiz(q.id) === null">
+          0 ★
+        </div>
+
       </div>
+
       <div class="add-stuff" (click)="openAddQuiz()">
         +
       </div>
     </div>
-    <h2>Quizze meiner Freunde</h2>
+
+    <!-- QUIZZE MEINER FREUNDE -->
+    <h2 class="clickable" (click)="seeAllMyQuizzes()">Quizze meiner Freunde</h2>
+
     <div class="friends-list">
       <div class="friend" *ngFor="let f of receivedQuizzes">
         <button (click)="openTheirQuiz(f)">
@@ -34,22 +58,8 @@
         </button>
       </div>
     </div>
+
   </div>
 
-  <!-- Buttons -->
-  <!--<div class="button-group">
-    <button routerLink="/quizzes/create">Quiz erstellen</button>
-    <button routerLink="/quizzes">Quizzes durchsuchen</button>
-    <button routerLink="/quizzes/my">Meine Quizzes</button>
-    <button (click)="loadStats()">Statistiken</button>
-  </div>
-</-->
-
-  <!-- Logout-Bereich -->
-  <!--<div class="logout">
-    Eingeloggt als<br>
-    <strong>{{ user.username }}</strong><br>
-    <a routerLink="/login" style="color: #eee;">Abmelden</a>
-  </div>-->
 </div>
 </body>
