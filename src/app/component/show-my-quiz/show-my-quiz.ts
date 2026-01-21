@@ -54,7 +54,7 @@ export class ShowMyQuiz implements OnInit {
 
   private loadQuizAndAttempt(quizId: number) {
 
-    this.showMyQuizService.getMyQuiz(quizId).subscribe({
+    this.showMyQuizService.getQuizToSolve(quizId).subscribe({
       next: (quiz) => (this.quiz = quiz)
     });
 

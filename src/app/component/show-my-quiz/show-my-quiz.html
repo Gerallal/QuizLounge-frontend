@@ -1,9 +1,6 @@
 <body>
 <div class="quiz-page" *ngIf="quiz && attempt">
 
-  <!-- =========================
-       HEADER
-  ========================= -->
   <div class="quiz-header">
     <h1>{{ quiz.title }}</h1>
 
@@ -26,9 +23,6 @@
     </div>
   </div>
 
-  <!-- =========================
-       QUIZ FORM
-  ========================= -->
   <form (ngSubmit)="submitQuiz()" #quizForm="ngForm">
 
     <div class="questions">
@@ -39,7 +33,6 @@
           Frage {{ qi + 1 }}: {{ q.questionText }}
         </h3>
 
-        <!-- SINGLE ANSWER -->
         <div *ngIf="q.questionType === 'SingleAnswerQuestion'"
              class="answers">
           <label *ngFor="let ans of q.answers">
@@ -54,7 +47,6 @@
           </label>
         </div>
 
-        <!-- MULTIPLE ANSWER -->
         <div *ngIf="q.questionType === 'MultipleAnswerQuestion'"
              class="answers">
           <label *ngFor="let ans of q.answers">
@@ -70,7 +62,6 @@
           </label>
         </div>
 
-        <!-- USER INPUT -->
         <div *ngIf="q.questionType === 'UserInputQuestion'"
              class="answers">
           <input type="text"
@@ -82,9 +73,6 @@
       </div>
     </div>
 
-    <!-- =========================
-         SUBMIT
-    ========================= -->
     <div class="solve-wrapper">
       <button type="submit" class="solve-btn">
         Lösen

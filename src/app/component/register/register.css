@@ -1,6 +1,4 @@
-/* =========================
-   RESET & BASIS
-========================= */
+
 *,
 *::before,
 *::after {
@@ -15,9 +13,6 @@ body {
   overflow-x: hidden;
 }
 
-/* =========================
-   BACKGROUND (WIE HOME)
-========================= */
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #e8ecff, #d9f5ff);
@@ -27,9 +22,6 @@ body {
   padding: 20px;
 }
 
-/* =========================
-   WRAPPER
-========================= */
 .register-wrapper {
   width: 100%;
   display: flex;
@@ -37,9 +29,6 @@ body {
   align-items: center;
 }
 
-/* =========================
-   REGISTER CARD
-========================= */
 .register-box {
   width: 100%;
   max-width: 440px;
@@ -49,9 +38,6 @@ body {
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* =========================
-   HEADLINE
-========================= */
 .register-box h2 {
   margin: 0 0 32px;
   text-align: center;
@@ -60,15 +46,11 @@ body {
   color: #4a3fc1;
 }
 
-/* =========================
-   INPUT BOXES
-========================= */
 .input-box {
   margin-bottom: 22px;
   position: relative;
 }
 
-/* Inputs */
 .input-box input {
   width: 100%;
   padding: 14px 16px;
@@ -79,7 +61,6 @@ body {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Focus */
 .input-box input:focus {
   outline: none;
   border-color: #786fe0;
@@ -87,15 +68,10 @@ body {
   background: #ffffff;
 }
 
-/* Alte Linien/Animationen entfernen */
 .input-box span {
   display: none;
 }
 
-/* =========================
-   STATUS TEXT (OPTIONAL)
-========================= */
-/* Falls du später einen Status-Text einfügst */
 .status-text {
   margin-bottom: 18px;
   font-size: 14px;
@@ -103,14 +79,10 @@ body {
   color: #d23b3b; /* Fehler */
 }
 
-/* Erfolg */
 .status-text.success {
   color: #2e9d5f;
 }
 
-/* =========================
-   REGISTER BUTTON
-========================= */
 .register-button {
   width: 100%;
   padding: 16px;
@@ -130,9 +102,6 @@ body {
   box-shadow: 0 10px 26px rgba(92, 84, 201, 0.4);
 }
 
-/* =========================
-   LOGIN LINK
-========================= */
 .login-link {
   margin-top: 22px;
   text-align: center;

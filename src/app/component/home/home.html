@@ -58,13 +58,6 @@
         {{ f.title }}
       </span>
 
-          <span
-            class="quiz-rating"
-            [class.no-rating]="getRatingForQuiz(f.id) === null"
-          >
-        ★ {{ getRatingForQuiz(f.id) ?? 0 | number:'1.1-1' }}
-      </span>
-
         </button>
       </div>
 

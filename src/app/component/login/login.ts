@@ -15,9 +15,7 @@ export class Login{
 
   public response:any;
 
-  constructor(private _loginService: LoginService, private router: Router) {
-
-  }
+  constructor(private _loginService: LoginService, private router: Router) {}
 
   formData = {username:"", password:""};
 

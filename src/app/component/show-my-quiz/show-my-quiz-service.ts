@@ -12,8 +12,8 @@ export class ShowMyQuizService {
 
   constructor(private httpClient:HttpClient) {}
 
-  getMyQuiz(quizId: number) {
-    return this.httpClient.get<Quiz>(this._url + "quiz/myQuiz/" + quizId, {
+  getQuizToSolve(quizId: number) {
+    return this.httpClient.get<Quiz>(this._url + "quiz/myQuiz/solve/" + quizId, {
       withCredentials: true
     })
   }

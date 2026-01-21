@@ -1,6 +1,4 @@
-/* =========================
-   RESET & BASIS
-========================= */
+
 *,
 *::before,
 *::after {
@@ -15,9 +13,7 @@ body {
   overflow-x: hidden;
 }
 
-/* =========================
-   BACKGROUND (WIE HOME)
-========================= */
+
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #e8ecff, #d9f5ff);
@@ -27,9 +23,6 @@ body {
   padding: 40px 20px;
 }
 
-/* =========================
-   MAIN CARD
-========================= */
 .quiz-page {
   width: 100%;
   max-width: 900px;
@@ -39,9 +32,6 @@ body {
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* =========================
-   HEADER
-========================= */
 .quiz-header {
   display: flex;
   justify-content: space-between;
@@ -57,16 +47,12 @@ body {
   color: #4a3fc1;
 }
 
-/* =========================
-   ACTIONS (AUTHOR)
-========================= */
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-/* Buttons */
 .actions button {
   padding: 10px 16px;
   border-radius: 12px;
@@ -89,7 +75,6 @@ body {
   cursor: not-allowed;
 }
 
-/* Delete button */
 .actions button:last-child {
   background: #ffecec;
   color: #d23b3b;
@@ -99,7 +84,6 @@ body {
   background: #ffdede;
 }
 
-/* Select */
 .actions select {
   padding: 10px 14px;
   border-radius: 12px;
@@ -108,9 +92,6 @@ body {
   font-size: 14px;
 }
 
-/* =========================
-   QUESTIONS
-========================= */
 .questions > div {
   margin-bottom: 32px;
 }
@@ -123,16 +104,12 @@ body {
   color: #333;
 }
 
-/* =========================
-   ANSWERS (VERTIKAL!)
-========================= */
 .answers {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-/* Jede Antwort = eigene Zeile */
 .answers label {
   display: flex;
   align-items: center;
@@ -153,7 +130,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* Radio / Checkbox */
 .answers input[type="radio"],
 .answers input[type="checkbox"] {
   flex-shrink: 0;
@@ -161,14 +137,12 @@ body {
   cursor: pointer;
 }
 
-/* Antworttext */
 .answer-text {
   flex: 1;
   font-size: 15px;
   color: #333;
 }
 
-/* USER INPUT */
 .answers input[type="text"] {
   width: 100%;
   padding: 14px 16px;
@@ -177,9 +151,6 @@ body {
   font-size: 15px;
 }
 
-/* =========================
-   SOLVE BUTTON
-========================= */
 .solve-wrapper {
   margin-top: 40px;
   text-align: center;

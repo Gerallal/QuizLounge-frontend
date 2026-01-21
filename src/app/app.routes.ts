@@ -3,7 +3,6 @@ import {Login} from './component/login/login';
 import {Register} from './component/register/register';
 import {Friends} from './component/friends/friends';
 import {Home} from './component/home/home';
-import { SolveQuizList } from './component/solve-quiz-list/solve-quiz-list';
 import {Solve} from './component/solve/solve';
 import { Stats } from './component/stats/stats';
 import { RatingQuiz } from './component/rating-quiz/rating-quiz';
@@ -36,11 +35,6 @@ export const routes: Routes = [
   {
     path: 'home',
     component: Home
-  },
-
-  {
-    path: 'solveQuizList',
-    component: SolveQuizList
   },
 
   {
