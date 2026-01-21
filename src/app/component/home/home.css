@@ -1,6 +1,4 @@
-/* =========================
-   RESET & BASIS
-========================= */
+
 *,
 *::before,
 *::after {
@@ -15,9 +13,6 @@ body {
   font-family: "Inter", "Arial", sans-serif;
 }
 
-/* =========================
-   BACKGROUND
-========================= */
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #e8ecff, #d9f5ff);
@@ -27,9 +22,6 @@ body {
   padding: 30px 20px;
 }
 
-/* =========================
-   MAIN CONTAINER
-========================= */
 #main {
   width: 100%;
   max-width: 900px;
@@ -39,9 +31,6 @@ body {
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* =========================
-   HEADLINES
-========================= */
 #main h1 {
   text-align: center;
   margin-bottom: 40px;
@@ -57,25 +46,16 @@ body {
   color: #333;
 }
 
-/* =========================
-   FRIENDS / QUIZ SECTIONS
-========================= */
 .friends-section {
   width: 100%;
 }
 
-/* =========================
-   LIST GRID
-========================= */
 .friends-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 16px;
 }
 
-/* =========================
-   CARD
-========================= */
 .friend {
   background: #f8f9ff;
   border: 1px solid #e2e6ff;
@@ -91,9 +71,6 @@ body {
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
 }
 
-/* =========================
-   CARD BUTTON
-========================= */
 .friend button {
   width: 100%;
   height: 100%;
@@ -103,17 +80,38 @@ body {
   font-weight: 600;
   color: #4a3fc1;
   cursor: pointer;
-  text-align: center;
   padding: 0;
 }
 
-.friend button:hover {
-  text-decoration: underline;
+.quiz-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-/* =========================
-   ADD BUTTON (+)
-========================= */
+.quiz-title {
+  flex: 1;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.quiz-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #4a3fc1;
+  white-space: nowrap;
+}
+
+.quiz-rating.no-rating {
+  opacity: 0.5;
+}
+
 .add-stuff {
   position: relative;
   display: flex;
@@ -130,12 +128,11 @@ body {
   border-radius: 16px;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
-  overflow: visible;
 }
 
 .add-stuff:hover {
   background: #e2e6ff;
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .badge {
@@ -158,13 +155,9 @@ body {
   align-items: center;
   justify-content: center;
 
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); /* ✨ */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
-
-/* =========================
-   EMPTY STATES (falls nötig)
-========================= */
 .friends-section p {
   background: #f5f6ff;
   padding: 14px;

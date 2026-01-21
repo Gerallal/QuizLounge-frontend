@@ -1,6 +1,4 @@
-/* =========================
-   RESET & BASIS
-========================= */
+
 *,
 *::before,
 *::after {
@@ -15,9 +13,6 @@ body {
   font-family: "Inter", "Arial", sans-serif;
 }
 
-/* =========================
-   BACKGROUND
-========================= */
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #e8ecff, #d9f5ff);
@@ -27,9 +22,6 @@ body {
   padding: 40px 20px;
 }
 
-/* =========================
-   CARD / FORM CONTAINER
-========================= */
 .add-form {
   width: 100%;
   max-width: 520px;
@@ -39,9 +31,6 @@ body {
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* =========================
-   HEADLINE
-========================= */
 .add-form h2 {
   text-align: center;
   margin-bottom: 28px;
@@ -50,16 +39,12 @@ body {
   color: #4a3fc1;
 }
 
-/* =========================
-   FORM
-========================= */
 .add-form form {
   display: flex;
   gap: 12px;
   margin-bottom: 30px;
 }
 
-/* Input */
 .add-form input[type="text"] {
   flex: 1;
   padding: 12px 14px;
@@ -77,7 +62,6 @@ body {
   background-color: #fff;
 }
 
-/* Submit button */
 .add-form button[type="submit"] {
   padding: 12px 18px;
   font-size: 15px;
@@ -95,9 +79,6 @@ body {
   box-shadow: 0 8px 20px rgba(92, 84, 201, 0.35);
 }
 
-/* =========================
-   ANGULAR MATERIAL TABLE
-========================= */
 table.mat-table {
   width: 100%;
   border-radius: 14px;
@@ -106,7 +87,6 @@ table.mat-table {
   background: #fff;
 }
 
-/* Header */
 .mat-header-row {
   background: #f1f3ff;
 }
@@ -118,21 +98,16 @@ table.mat-table {
   padding: 14px;
 }
 
-/* Cells */
 .mat-cell {
   font-size: 14px;
   padding: 14px;
   color: #444;
 }
 
-/* Row hover */
 .mat-row:hover {
   background: #f8f9ff;
 }
 
-/* =========================
-   ACTION LINKS
-========================= */
 .accept-text {
   font-weight: 600;
   cursor: pointer;
@@ -140,18 +115,16 @@ table.mat-table {
   transition: color 0.2s ease;
 }
 
-/* Accept */
 .accept-text:first-child {
-  color: #4a3fc1;
+  color: #ff0000;
 }
 
 .accept-text:first-child:hover {
   text-decoration: underline;
 }
 
-/* Decline */
 td:last-child .accept-text {
-  color: #d23b3b;
+  color: #4a3fc1;
 }
 
 td:last-child .accept-text:hover {

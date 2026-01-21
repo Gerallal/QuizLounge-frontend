@@ -1,27 +1,31 @@
+<body>
 <div class="page-wrapper">
   <div class="card quiz-container">
+
     <h1>Quiz erstellen</h1>
 
     <form (ngSubmit)="onSubmit()" #quizForm="ngForm">
 
       <div class="form-group">
-        <h2 for="title">Titel</h2>
+        <h2>Titel</h2>
         <input
           type="text"
           id="title"
           name="title"
           [(ngModel)]="title"
           placeholder="Titel eingeben"
-          required>
+          required
+        >
       </div>
 
       <div class="form-group">
-        <h2 for="category">Kategorie</h2>
+        <h2>Kategorie</h2>
         <select
           id="category"
           name="category"
           [(ngModel)]="selectedCategory"
-          required>
+          required
+        >
           <option value="" disabled>Kategorie wählen</option>
           <option value="Allgemein">Allgemein</option>
           <option value="Mathematik">Mathematik</option>
@@ -38,23 +42,25 @@
       </div>
 
       <div class="form-group">
-        <h2 for="description">Beschreibung</h2>
+        <h2>Beschreibung</h2>
         <textarea
           id="description"
           name="description"
           [(ngModel)]="description"
-          placeholder="Kurze Beschreibung (optional)"></textarea>
+          placeholder="Kurze Beschreibung (optional)"
+        ></textarea>
       </div>
 
       <button
         type="submit"
         class="primary-btn"
-        [disabled]="!quizForm.valid">
+        [disabled]="!quizForm.valid"
+      >
         Fortfahren
       </button>
 
     </form>
 
-    <a class="back-link" routerLink="/home">← zurück zur Übersicht</a>
   </div>
 </div>
+</body>

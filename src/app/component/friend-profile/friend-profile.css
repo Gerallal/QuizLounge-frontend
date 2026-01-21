@@ -1,6 +1,4 @@
-/* =========================
-   RESET & BASIS
-========================= */
+
 *,
 *::before,
 *::after {
@@ -15,9 +13,6 @@ body {
   overflow-x: hidden;
 }
 
-/* =========================
-   BACKGROUND (WIE HOME)
-========================= */
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #e8ecff, #d9f5ff);
@@ -27,21 +22,15 @@ body {
   padding: 40px 20px;
 }
 
-/* =========================
-   MAIN CARD
-========================= */
 .friend-profile {
   width: 100%;
-  max-width: 900px; /* wie Home */
+  max-width: 900px;
   background: #ffffff;
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* =========================
-   PROFILE HEADER
-========================= */
 .profile-main {
   display: flex;
   justify-content: space-between;
@@ -57,9 +46,6 @@ body {
   color: #4a3fc1;
 }
 
-/* =========================
-   DANGER BUTTON
-========================= */
 .danger-btn {
   padding: 12px 20px;
   border-radius: 14px;
@@ -77,9 +63,6 @@ body {
   box-shadow: 0 6px 16px rgba(224, 72, 72, 0.35);
 }
 
-/* =========================
-   SHARED QUIZZES
-========================= */
 .shared-quizzes h3 {
   margin-bottom: 18px;
   font-size: 20px;
@@ -87,18 +70,12 @@ body {
   color: #333;
 }
 
-/* =========================
-   QUIZ LIST
-========================= */
 .quiz-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 18px;
 }
 
-/* =========================
-   QUIZ CARD
-========================= */
 .quiz-card {
   background: #f8f9ff;
   border: 1px solid #e2e6ff;
@@ -128,9 +105,6 @@ body {
   text-decoration: underline;
 }
 
-/* =========================
-   EMPTY STATE
-========================= */
 .shared-quizzes p {
   background: #f5f6ff;
   padding: 16px;

@@ -1,6 +1,4 @@
-/* =========================
-   RESET & BASIS
-========================= */
+
 *,
 *::before,
 *::after {
@@ -15,9 +13,7 @@ body {
   overflow-x: hidden;
 }
 
-/* =========================
-   BACKGROUND (WIE HOME)
-========================= */
+
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #e8ecff, #d9f5ff);
@@ -27,21 +23,17 @@ body {
   padding: 30px 20px;
 }
 
-/* =========================
-   MAIN CARD (HOME LOOK)
-========================= */
+
 .quiz-container {
   width: 100%;
-  max-width: 900px; /* exakt wie Home */
+  max-width: 900px;
   background: #ffffff;
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* =========================
-   HEADLINE
-========================= */
+
 .quiz-container h1 {
   margin: 0 0 36px;
   font-size: 30px;
@@ -49,21 +41,17 @@ body {
   color: #4a3fc1;
 }
 
-/* =========================
-   QUESTION BLOCK (SECTION CARD)
-========================= */
+
 .question-block {
+  position: relative;
   background: #f8f9ff;
   border: 1px solid #e2e6ff;
   border-radius: 16px;
   padding: 28px;
   margin-bottom: 28px;
-  position: relative;
 }
 
-/* =========================
-   LABELS
-========================= */
+
 label {
   display: block;
   margin-bottom: 8px;
@@ -72,10 +60,9 @@ label {
   color: #444;
 }
 
-/* =========================
-   INPUTS
-========================= */
-input[type="text"] {
+
+input[type="text"],
+select {
   width: 100%;
   padding: 14px 16px;
   font-size: 15px;
@@ -86,15 +73,14 @@ input[type="text"] {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-input[type="text"]:focus {
+input:focus,
+select:focus {
   outline: none;
   border-color: #786fe0;
   box-shadow: 0 0 0 3px rgba(120, 111, 224, 0.25);
 }
 
-/* =========================
-   ANSWERS
-========================= */
+
 .answer-option {
   display: grid;
   grid-template-columns: 1fr auto auto;
@@ -103,7 +89,6 @@ input[type="text"]:focus {
   margin-bottom: 12px;
 }
 
-/* Checkbox */
 .answer-option input[type="checkbox"] {
   width: 18px;
   height: 18px;
@@ -111,14 +96,13 @@ input[type="text"]:focus {
   cursor: pointer;
 }
 
-/* Remove answer */
 .answer-option button {
   width: 34px;
   height: 34px;
   border-radius: 10px;
   border: none;
   background: #ff5b5b;
-  color: #fff;
+  color: #ffffff;
   font-weight: 700;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
@@ -129,9 +113,6 @@ input[type="text"]:focus {
   transform: scale(1.05);
 }
 
-/* =========================
-   QUESTION ACTIONS
-========================= */
 .question-block > button {
   margin-top: 14px;
   padding: 12px 18px;
@@ -149,7 +130,6 @@ input[type="text"]:focus {
   transform: translateY(-1px);
 }
 
-/* Remove question */
 .remove-question-btn {
   position: absolute;
   top: 20px;
@@ -166,9 +146,6 @@ input[type="text"]:focus {
   text-decoration: underline;
 }
 
-/* =========================
-   FORM ACTIONS (BOTTOM)
-========================= */
 form > button {
   width: 100%;
   padding: 16px;
@@ -180,7 +157,6 @@ form > button {
   cursor: pointer;
 }
 
-/* Add question */
 form > button[type="button"] {
   background: #f1f3ff;
   color: #4a3fc1;
@@ -190,7 +166,6 @@ form > button[type="button"]:hover {
   background: #e3e6ff;
 }
 
-/* Submit */
 form > button[type="submit"] {
   background: linear-gradient(135deg, #786fe0, #5c54c9);
   color: #ffffff;
@@ -200,4 +175,3 @@ form > button[type="submit"]:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 26px rgba(92, 84, 201, 0.4);
 }
-

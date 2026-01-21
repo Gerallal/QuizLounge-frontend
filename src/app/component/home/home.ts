@@ -7,7 +7,6 @@ import { User } from '../../models/user-model';
 import { Quiz } from '../../models/quiz-model';
 import {MatBadgeModule} from '@angular/material/badge';
 import {FriendsService} from '../friends/friends.service';
-import {Rating} from '../../models/rating-model';
 import {StatsService} from '../stats/stats-service';
 
 @Component({
@@ -24,8 +23,6 @@ export class Home implements OnInit{
 
   showFriends = true;
   friendRequestCount = 0;
-
-  // ⭐ Ratings pro Quiz
   quizRatings: Map<number, number> = new Map();
 
   constructor(
@@ -44,7 +41,6 @@ export class Home implements OnInit{
     this.loadFriendRequests();
   }
 
-  // ------------------ NAVIGATION ------------------
 
   openFriends(id: number) {
     this.router.navigate(['/friend', id]);
@@ -67,7 +63,7 @@ export class Home implements OnInit{
   }
 
   seeAllFriends() {
-    this.router.navigate(['/friends']);
+    this.router.navigate(['/allFriends']);
   }
 
   seeAllMyQuizzes() {
@@ -76,7 +72,11 @@ export class Home implements OnInit{
     });
   }
 
-  // ------------------ DATA ------------------
+  seeAllSentQuizzes() {
+    this.router.navigate(['/allQuizzes'], {
+      queryParams: { tab: 'shared' }
+    });
+  }
 
   loadFriends() {
     this.loginService.userLogin().subscribe(user => {
@@ -103,7 +103,6 @@ export class Home implements OnInit{
     });
   }
 
-  // ------------------ RATINGS ------------------
 
   loadRatings() {
     this.statsService.getRatingsOfMyQuizzes().subscribe(ratings => {

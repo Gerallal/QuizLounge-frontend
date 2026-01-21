@@ -1,0 +1,110 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8ecff, #d9f5ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.rating-page {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.rating-page h1 {
+  margin-bottom: 28px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #4a3fc1;
+}
+
+.rating-page h2 {
+  margin: 28px 0 18px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+}
+
+.score-card {
+  background: #f8f9ff;
+  border: 1px solid #e2e6ff;
+  border-radius: 14px;
+  padding: 18px;
+  font-size: 16px;
+  color: #333;
+}
+
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 10px;
+  margin: 24px 0 32px;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating .star {
+  font-size: 36px;
+  color: #d0d4e4;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.star-rating .star:hover,
+.star-rating .star:hover ~ .star {
+  color: #786fe0;
+}
+
+.star-rating input:checked ~ .star {
+  color: #786fe0;
+}
+
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #786fe0, #5c54c9);
+  color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+  opacity 0.2s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(92, 84, 201, 0.4);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

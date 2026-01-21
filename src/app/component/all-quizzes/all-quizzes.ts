@@ -1,35 +1,33 @@
 import {Component, OnInit} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {NgForOf, NgIf} from "@angular/common";
-import {Quiz} from '../../models/quiz-model';
+import {DecimalPipe, NgForOf, NgIf} from "@angular/common";
 import {HomeService} from '../home/home.service';
 import {LoginService} from '../login/login.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
+import {Quiz} from '../../models/quiz-model';
 
 @Component({
   selector: 'app-all-quizzes',
-    imports: [
-        FormsModule,
-        NgForOf,
-        NgIf
-    ],
+  imports: [
+    FormsModule,
+    NgForOf,
+    NgIf,
+    DecimalPipe
+  ],
   templateUrl: './all-quizzes.html',
   styleUrl: './all-quizzes.css',
 })
 export class AllQuizzes implements OnInit {
 
-  activeTab: 'my' | 'shared' = 'my';
+  activeTab!: 'my' | 'shared';
 
-  // Daten
   myQuizzes: Quiz[] = [];
   sharedQuizzes: Quiz[] = [];
   filteredQuizzes: Quiz[] = [];
 
-  // Filter
   searchTerm = '';
   selectedCategory = '';
 
-  // Kategorien (fest)
   categories: string[] = [
     'Allgemein',
     'Mathematik',
@@ -52,13 +50,11 @@ export class AllQuizzes implements OnInit {
 
   ngOnInit(): void {
 
-    // Tab aus URL
     this.route.queryParams.subscribe(params => {
       this.activeTab = params['tab'] === 'shared' ? 'shared' : 'my';
       this.applyFilters();
     });
 
-    // Quizze laden
     this.loginService.userLogin().subscribe(user => {
 
       this.homeService.getMyQuiz(user.id).subscribe(my => {
@@ -74,19 +70,16 @@ export class AllQuizzes implements OnInit {
     });
   }
 
-  // Zentrale Filter-Logik
   applyFilters() {
     let source =
       this.activeTab === 'my'
         ? this.myQuizzes
         : this.sharedQuizzes;
 
-    // Kategorie
     if (this.selectedCategory) {
       source = source.filter(q => q.category === this.selectedCategory);
     }
 
-    // Suche
     if (this.searchTerm.trim()) {
       const term = this.searchTerm.toLowerCase();
       source = source.filter(q =>
@@ -97,9 +90,5 @@ export class AllQuizzes implements OnInit {
     this.filteredQuizzes = source;
   }
 
-  switchTab(tab: 'my' | 'shared') {
-    this.activeTab = tab;
-    this.applyFilters();
-  }
 
 }

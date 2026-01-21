@@ -15,9 +15,6 @@ body {
   overflow-x: hidden;
 }
 
-/* =========================
-   BACKGROUND (WIE HOME)
-========================= */
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #e8ecff, #d9f5ff);
@@ -27,9 +24,6 @@ body {
   padding: 20px;
 }
 
-/* =========================
-   WRAPPER
-========================= */
 .login-wrapper {
   width: 100%;
   display: flex;
@@ -37,9 +31,6 @@ body {
   align-items: center;
 }
 
-/* =========================
-   LOGIN CARD (HOME STYLE)
-========================= */
 .login-box {
   width: 100%;
   max-width: 420px;
@@ -49,9 +40,6 @@ body {
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* =========================
-   HEADLINE
-========================= */
 .login-box h2 {
   margin: 0 0 32px;
   text-align: center;
@@ -60,15 +48,11 @@ body {
   color: #4a3fc1;
 }
 
-/* =========================
-   INPUT BOX
-========================= */
 .input-box {
   margin-bottom: 22px;
   position: relative;
 }
 
-/* Inputs */
 .input-box input {
   width: 100%;
   padding: 14px 16px;
@@ -79,7 +63,6 @@ body {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Focus */
 .input-box input:focus {
   outline: none;
   border-color: #786fe0;
@@ -87,14 +70,10 @@ body {
   background: #ffffff;
 }
 
-/* Entfernt alte Linien/Animationen */
 .input-box span {
   display: none;
 }
 
-/* =========================
-   LOGIN BUTTON
-========================= */
 .login-button {
   width: 100%;
   padding: 16px;
@@ -114,9 +93,6 @@ body {
   box-shadow: 0 10px 26px rgba(92, 84, 201, 0.4);
 }
 
-/* =========================
-   REGISTER LINK
-========================= */
 .register-link {
   margin-top: 22px;
   text-align: center;
@@ -133,9 +109,6 @@ body {
   text-decoration: underline;
 }
 
-/* =========================
-   EXTRA BUTTON (DEBUG)
-========================= */
 .login-box > div:last-child button {
   margin-top: 16px;
   width: 100%;

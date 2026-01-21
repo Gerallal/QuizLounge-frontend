@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {CommonModule, NgForOf, NgIf} from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CreateQuizService2 } from './create-quiz-service';
 import { Question } from '../../models/question-model';
@@ -28,7 +28,7 @@ export class CreateQuiz2 implements OnInit {
 
   ngOnInit() {
     this.quizId = Number(this.route.snapshot.paramMap.get('id'));
-    this.addQuestion(); // erste Frage direkt anlegen
+    this.addQuestion();
   }
 
   onSubmit() {
@@ -67,7 +67,6 @@ export class CreateQuiz2 implements OnInit {
     const question = this.formData[questionIndex];
 
     if (question.questionType === 'UserInputQuestion') {
-      // exakt eine Antwort, immer korrekt
       question.answers = [
         { answerText: '', correct: true }
       ];

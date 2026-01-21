@@ -2,33 +2,47 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import * as Plotly from 'plotly.js-dist-min';
 import { StatsService } from './stats-service';
+import {User} from '../../models/user-model';
+import {LoginService} from '../login/login.service';
 
 @Component({
   selector: 'app-stats',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './stats.html',
+  styleUrls: ['./stats.css']
 })
 export class Stats implements OnInit {
+  currentUser!: User;
   showQuizStats = false;
   showMyStats = false;
   statsDataOFMyQuizzes: any[] = []; // Stats meiner erstellten Quizze
   myStatsData: any[] = [];          // Meine eigenen Stats
   groupedQuizzes: any[] = [];       // Daten für die Charts
 
-  constructor(private statsService: StatsService) {}
+  constructor(private statsService: StatsService, private loginService: LoginService) { }
 
   ngOnInit() {
-    // Stats meiner erstellten Quizze
-    this.statsService.getStatsOfAQuiz().subscribe(data => {
-      this.statsDataOFMyQuizzes = data;
-    });
+    this.loginService.userLogin().subscribe({
+      next: (user) => {
+        this.currentUser = user;
 
-    // Meine eigenen Stats
-    this.statsService.getMyStats().subscribe(data => {
-      this.myStatsData = data;
+        const username = this.currentUser.username;
+
+        this.statsService.getStatsOfAQuiz(username).subscribe(data => {
+          this.statsDataOFMyQuizzes = data;
+        });
+
+        this.statsService.getMyStats().subscribe(data => {
+          this.myStatsData = data;
+        });
+      },
+      error: err => {
+        console.error('User konnte nicht geladen werden', err);
+      }
     });
   }
+
 
 
   showQuizResults() {

@@ -1,6 +1,4 @@
-/* =========================
-   RESET & BASIS
-========================= */
+
 *,
 *::before,
 *::after {
@@ -15,9 +13,6 @@ body {
   font-family: "Inter", "Arial", sans-serif;
 }
 
-/* =========================
-   BACKGROUND
-========================= */
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #e8ecff, #d9f5ff);
@@ -27,9 +22,6 @@ body {
   padding: 20px;
 }
 
-/* =========================
-   CARD
-========================= */
 .quiz-container {
   background: #ffffff;
   width: 100%;
@@ -39,10 +31,7 @@ body {
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* =========================
-   HEADLINE
-========================= */
-h1 {
+.quiz-container h1 {
   text-align: center;
   margin-bottom: 40px;
   color: #4a3fc1;
@@ -50,22 +39,16 @@ h1 {
   font-weight: 700;
 }
 
-/* =========================
-   QUESTION BLOCK
-========================= */
 .question-block {
+  position: relative;
   background: #f8f9ff;
   border: 1px solid #e2e6ff;
   border-radius: 14px;
   padding: 24px;
   margin-bottom: 30px;
-  position: relative;
 }
 
-/* =========================
-   LABELS
-========================= */
-label {
+.question-block label {
   display: block;
   margin-bottom: 6px;
   font-size: 14px;
@@ -73,29 +56,25 @@ label {
   color: #444;
 }
 
-/* =========================
-   TEXT INPUTS
-========================= */
-input[type="text"] {
+.question-block input[type="text"],
+.question-block select {
   width: 100%;
   padding: 12px 14px;
   font-size: 15px;
   border-radius: 10px;
   border: 1px solid #d0d4e4;
-  background-color: #fff;
+  background-color: #ffffff;
   margin-bottom: 14px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-input[type="text"]:focus {
+.question-block input[type="text"]:focus,
+.question-block select:focus {
   outline: none;
   border-color: #786fe0;
   box-shadow: 0 0 0 3px rgba(120, 111, 224, 0.25);
 }
 
-/* =========================
-   ANSWERS
-========================= */
 .answer-option {
   display: grid;
   grid-template-columns: 1fr auto auto;
@@ -104,7 +83,6 @@ input[type="text"]:focus {
   margin-bottom: 10px;
 }
 
-/* Checkbox */
 .answer-option input[type="checkbox"] {
   width: 18px;
   height: 18px;
@@ -112,11 +90,10 @@ input[type="text"]:focus {
   cursor: pointer;
 }
 
-/* Delete answer button */
 .answer-option button {
   background: #ff5b5b;
   border: none;
-  color: #fff;
+  color: #ffffff;
   width: 32px;
   height: 32px;
   border-radius: 8px;
@@ -130,9 +107,6 @@ input[type="text"]:focus {
   transform: scale(1.05);
 }
 
-/* =========================
-   QUESTION ACTIONS
-========================= */
 .question-block > button {
   margin-top: 12px;
   padding: 10px 16px;
@@ -150,7 +124,6 @@ input[type="text"]:focus {
   transform: translateY(-1px);
 }
 
-/* Remove question */
 .remove-question-btn {
   position: absolute;
   top: 18px;
@@ -167,13 +140,10 @@ input[type="text"]:focus {
   text-decoration: underline;
 }
 
-/* =========================
-   FORM BUTTONS
-========================= */
 form > button {
+  width: 100%;
   margin-top: 18px;
   padding: 14px;
-  width: 100%;
   font-size: 16px;
   font-weight: 600;
   border-radius: 14px;
@@ -181,7 +151,6 @@ form > button {
   cursor: pointer;
 }
 
-/* Add question */
 form > button[type="button"]:first-of-type {
   background: #f1f3ff;
   color: #4a3fc1;
@@ -191,10 +160,9 @@ form > button[type="button"]:first-of-type:hover {
   background: #e3e6ff;
 }
 
-/* Save */
 form > button[type="submit"] {
   background: linear-gradient(135deg, #786fe0, #5c54c9);
-  color: white;
+  color: #ffffff;
   margin-top: 14px;
 }
 
@@ -203,7 +171,6 @@ form > button[type="submit"]:hover {
   transform: translateY(-2px);
 }
 
-/* Cancel */
 form > button[type="button"]:last-of-type {
   background: #ffecec;
   color: #d23b3b;
@@ -214,15 +181,12 @@ form > button[type="button"]:last-of-type:hover {
   background: #ffdede;
 }
 
-/* =========================
-   BACK LINK
-========================= */
 .quiz-container > a {
   display: block;
-  text-align: center;
   margin-top: 28px;
-  color: #4a3fc1;
+  text-align: center;
   font-size: 14px;
+  color: #4a3fc1;
   text-decoration: none;
   cursor: pointer;
 }

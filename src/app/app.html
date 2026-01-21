@@ -1,12 +1,37 @@
-<ul>
-  <li><a href="./login" class="active">𐀪</a></li>
-  <li><a href="./home">🏠︎</a></li>
-  <li><a href="./friends">𐀪𐀪</a></li>
-  <li><a href="./solve/1">Quiz lösen</a></li> <!-- ursprünglich <li><a href="./solveQuizList">Quiz lösen</a></li> -->
-  <li><a href="./solveQuiz/">Frage beantworten</a></li>
-  <li><a href="./create1">+</a></li>
-  <li><a href="./stats">〽</a></li>
-  <li style="float:right"><a href="./about">ⓘ</a></li>
-</ul>
+<div class="navbar-wrapper">
+  <nav class="navbar">
+    <ul class="nav-left">
+      <li>
+        <a routerLink="/home" routerLinkActive="active">
+          <img src="icons/home.png" alt="Home">
+        </a>
+      </li>
+      <li>
+        <a routerLink="/friends" routerLinkActive="active">
+          <img src="icons/friends.png" alt="Friends">
+        </a>
+      </li>
+      <li>
+        <a routerLink="/create1" routerLinkActive="active" class="add-btn">
+          <img src="icons/add_quiz.png" alt="Create">
+        </a>
+      </li>
+      <li>
+        <a routerLink="/stats" routerLinkActive="active">
+          <img src="icons/chart.png" alt="Stats">
+        </a>
+      </li>
+    </ul>
+
+    <ul class="nav-right">
+      <li class="username">{{ currentUser?.username }}</li>
+      <li>
+        <a routerLink="/login" routerLinkActive="active">
+          <img src="icons/account.png" alt="Account">
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
 
 <router-outlet></router-outlet>

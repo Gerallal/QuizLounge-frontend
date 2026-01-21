@@ -1,47 +1,51 @@
-<!doctype html>
-<html lang="de">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quiz Bewertung</title>
-</head>
 <body>
+<div class="rating-page">
 
-  <h2 *ngIf="score"> Du hast {{ score.numberOfRightAnswers }} von {{ score.totalQuestions }} richtig gelöst </h2>
+  <h1>Quiz Bewertung</h1>
 
+  <div class="score-card" *ngIf="score">
+    Du hast
+    <strong>{{ score.numberOfRightAnswers }}</strong>
+    von
+    <strong>{{ score.totalQuestions }}</strong>
+    richtig gelöst
+  </div>
 
-  <h3>Wie viele Sterne möchtest du geben? (1 bis 5)</h3>
+  <h2>Wie viele Sterne möchtest du geben?</h2>
 
-  <form (ngSubmit)="submitRating()">
+  <form (ngSubmit)="submitRating()" #ratingForm="ngForm">
 
-    <label>
-         <input type="radio" name="rating" [value]="1" [(ngModel)]="rating">
-         1 Stern
-    </label><br>
+    <div class="star-rating">
 
-    <label>
-        <input type="radio" name="rating" [value]="2" [(ngModel)]="rating">
-        2 Sterne
-    </label><br>
+      <ng-container *ngFor="let s of [5,4,3,2,1]">
+        <input
+          type="radio"
+          name="rating"
+          [id]="'star' + s"
+          [value]="s"
+          [(ngModel)]="rating"
+          [ngModelOptions]="{ standalone: true }"
+          required
+        >
+        <label
+          class="star"
+          [for]="'star' + s"
+        >
+          ★
+        </label>
+      </ng-container>
 
-    <label>
-        <input type="radio" name="rating" [value]="3" [(ngModel)]="rating">
-        3 Sterne
-    </label><br>
+    </div>
 
-    <label>
-        <input type="radio" name="rating" [value]="4" [(ngModel)]="rating">
-        4 Sterne
-    </label><br>
+    <button
+      type="submit"
+      class="submit-btn"
+      [disabled]="!ratingForm.valid"
+    >
+      Bewertung absenden
+    </button>
 
-    <label>
-        <input type="radio" name="rating" [value]="5" [(ngModel)]="rating">
-        5 Sterne
-    </label><br><br>
+  </form>
 
-    <button type="submit">Bewertung absenden</button>
-
-    </form>
-
+</div>
 </body>
-</html>

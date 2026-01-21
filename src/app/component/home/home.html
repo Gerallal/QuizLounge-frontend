@@ -5,7 +5,6 @@
 
   <div class="friends-section" *ngIf="showFriends">
 
-    <!-- MEINE FREUNDE -->
     <h2 class="clickable" (click)="seeAllFriends()">Meine Freunde</h2>
 
     <div class="friends-list">
@@ -18,45 +17,57 @@
       <div class="add-stuff" (click)="openFriendPage()">
         +
         <span class="badge" *ngIf="friendRequestCount > 0">
-          {{ friendRequestCount }}
-        </span>
+            {{ friendRequestCount }}
+          </span>
       </div>
     </div>
 
-    <!-- MEINE QUIZZE -->
     <h2 class="clickable" (click)="seeAllMyQuizzes()">Meine Quizze</h2>
 
     <div class="friends-list">
-      <div class="friend" *ngFor="let q of myQuizzes">
 
-        <button (click)="openMyQuiz(q)">
-          {{ q.title }}
+      <div class="friend quiz-card" *ngFor="let q of myQuizzes">
+        <button (click)="openMyQuiz(q)" class="quiz-button">
+            <span class="quiz-title">
+              {{ q.title }}
+            </span>
+
+          <span
+            class="quiz-rating"
+            [class.no-rating]="getRatingForQuiz(q.id) === null"
+          >
+              ★ {{ getRatingForQuiz(q.id) ?? 0 | number:'1.1-1' }}
+            </span>
         </button>
-
-        <div class="rating" *ngIf="getRatingForQuiz(q.id) !== null">
-          ★ {{ getRatingForQuiz(q.id) | number:'1.1-1' }} / 5
-        </div>
-
-        <div class="rating no-rating" *ngIf="getRatingForQuiz(q.id) === null">
-          0 ★
-        </div>
-
       </div>
 
       <div class="add-stuff" (click)="openAddQuiz()">
         +
       </div>
+
     </div>
 
-    <!-- QUIZZE MEINER FREUNDE -->
-    <h2 class="clickable" (click)="seeAllMyQuizzes()">Quizze meiner Freunde</h2>
+    <h2 class="clickable" (click)="seeAllSentQuizzes()">Quizze meiner Freunde</h2>
 
     <div class="friends-list">
-      <div class="friend" *ngFor="let f of receivedQuizzes">
-        <button (click)="openTheirQuiz(f)">
-          {{ f.title }}
+
+      <div class="friend quiz-card" *ngFor="let f of receivedQuizzes">
+        <button (click)="openTheirQuiz(f)" class="quiz-button">
+
+      <span class="quiz-title">
+        {{ f.title }}
+      </span>
+
+          <span
+            class="quiz-rating"
+            [class.no-rating]="getRatingForQuiz(f.id) === null"
+          >
+        ★ {{ getRatingForQuiz(f.id) ?? 0 | number:'1.1-1' }}
+      </span>
+
         </button>
       </div>
+
     </div>
 
   </div>

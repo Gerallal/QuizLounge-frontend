@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {Router, RouterLink} from '@angular/router';
+import {Router} from '@angular/router';
 import {CreateQuizService1} from './create-quiz-service';
 
 @Component({
   selector: 'app-create-quiz1',
   imports: [
     FormsModule,
-    ReactiveFormsModule,
-    RouterLink
+    ReactiveFormsModule
   ],
   templateUrl: './create-quiz.html',
   styleUrl: './create-quiz.css',

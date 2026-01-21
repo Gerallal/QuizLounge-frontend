@@ -8,7 +8,7 @@
 <body>
 <div class="register-wrapper">
   <div class="register-box">
-    <h2>Konto erstellen</h2>
+    <h2>Registrieren</h2>
     <form #loginForm="ngForm" (ngSubmit)="onSubmit()" method="post">
       <div class="input-box">
         <input type="text" name="username" [(ngModel)]="formData.username" placeholder="Benutzername" required>
@@ -25,10 +25,6 @@
 
         <span></span>
       </div>
-
-      < Hier status Text nachliefern />
-
-
 
       <button type="submit" class="register-button">Registrieren</button>
     </form>
