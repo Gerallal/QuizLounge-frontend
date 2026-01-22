@@ -3,7 +3,6 @@ import {Login} from './component/login/login';
 import {Register} from './component/register/register';
 import {Friends} from './component/friends/friends';
 import {Home} from './component/home/home';
-import {Solve} from './component/solve/solve';
 import { Stats } from './component/stats/stats';
 import { RatingQuiz } from './component/rating-quiz/rating-quiz';
 import {CreateQuiz1} from './component/create-quiz1/create-quiz';
@@ -45,11 +44,6 @@ export const routes: Routes = [
   {
     path: 'create-quiz2/:id',
     component: CreateQuiz2
-  },
-
-  {
-    path: 'solve/:quizId',
-    component: Solve
   },
 
   {
